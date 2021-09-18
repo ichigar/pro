@@ -1,9 +1,9 @@
 # PRO. Introducción Python
-![python_logo](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/python_logo.png)
+![python_logo](imgs/python_logo.png)
 
 ## ¿Qué es Python?
 
-![Guido_van_Rossum_2006](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/Guido_van_Rossum_2006.jpg)
+![Guido_van_Rossum_2006](imgs/Guido_van_Rossum_2006.jpg)
 
 Python es un lenguaje de programación creado por Guido van Rossum a principios de los años 90 cuyo nombre está inspirado en el grupo de cómicos ingleses “Monty Python”. Es un lenguaje similar a Perl, pero con una **sintaxis muy limpia** y que favorece un **código legible**.
 
@@ -100,7 +100,7 @@ bpython cuenta con características añadidas muy interesantes, como:
 * Resaltado de sintaxis en línea
 * Autoindentado
 
-![índice](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/bpython.gif)
+![índice](imgs/bpython.gif)
 
 ### Editores
 En cuanto a editores de código e IDEs existen múltiples opciones:
@@ -140,7 +140,7 @@ $ nano hola.py
 ```
 Escribimos la línea:
 
-![nano_hola_mundo](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/nano_hola_mundo.png)
+![nano_hola_mundo](imgs/nano_hola_mundo.png)
 
 
 
