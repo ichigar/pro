@@ -1,9 +1,9 @@
 # PRO. Introducción Python
-![python_logo](/home/ivan/mega/clases/github/pro/ut1/recursos/intro-python-imgs/python_logo.png)
+![python_logo](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/python_logo.png)
 
 ## ¿Qué es Python?
 
-![Guido_van_Rossum_2006](/home/ivan/mega/clases/github/pro/ut1/recursos/intro-python-imgs/Guido_van_Rossum_2006.jpg)
+![Guido_van_Rossum_2006](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/Guido_van_Rossum_2006.jpg)
 
 Python es un lenguaje de programación creado por Guido van Rossum a principios de los años 90 cuyo nombre está inspirado en el grupo de cómicos ingleses “Monty Python”. Es un lenguaje similar a Perl, pero con una **sintaxis muy limpia** y que favorece un **código legible**.
 
@@ -12,6 +12,30 @@ Python es un lenguaje de programación creado por Guido van Rossum a principios 
 Python se desarrolla bajo una licencia de Open source o código abierto aprobada por OSI, por lo que se puede usar y distribuir libremente, incluso para uso comercial.
 
 La licencia de Python es administrada por [Python Software Foundation](https://entrenamiento-python-basico.readthedocs.io/es/latest/leccion1/introduccion.html#python-psf).
+
+## Aplicaciones
+
+El [Python Package Index (PyPI)](https://pypi.org/) o en español significa *Índice de paquetes de Python* alberga miles de módulos de terceros para Python.
+
+Tanto la biblioteca estándar de Python como los módulos aportados por la comunidad permiten infinitas posibilidades:
+
+- [Desarrollo web e Internet](https://www.python.org/about/apps/#web-and-internet-development).
+- [Acceso a la base de datos](https://www.python.org/about/apps/#database-access).
+- [GUIs de escritorio](https://www.python.org/about/apps/#desktop-guis).
+- [Científico y numérico](https://www.python.org/about/apps/#scientific-and-numeric).
+- [Educación](https://www.python.org/about/apps/#education).
+- [Programación de red](https://www.python.org/about/apps/#network-programming).
+- [Desarrollo de Software y Juegos](https://www.python.org/about/apps/#software-development).
+
+## Comunidad
+La Python Software Foundation (PSF) es una corporación sin ánimo de lucro que posee los derechos de propiedad intelectual detrás del lenguaje de programación Python. 
+
+Administramos las licencias de código abierto para Python versión 2.1 y posteriores, y poseemos y protegemos las marcas comerciales asociadas con Python.
+
+También realiza la conferencia PyCon de Norteamérica anualmente, apoya otras conferencias de Python en todo el mundo y financia el desarrollo relacionado con Python
+```
+La misión de Python Software Foundation es promover, proteger y avanzar el lenguaje de programación Python, y apoyar y facilitar el crecimiento de una comunidad diversa e internacional de programadores de Python.
+```
 
 ## Características
 
@@ -62,22 +86,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```
 
-También podemos realizar una sesión interactiva utilizar iPython, en lugar de la consola interactiva de Python. 
+También podemos realizar una sesión interactiva utilizar **bpython**, en lugar de la consola interactiva de Python. 
 
 Para instalarlo si ya tenemos Python ejecutamos:
 
 ```python
-$ pip install ipython
+$ pip install bpython
 ```
 
-iPython cuenta con características añadidas muy interesantes, como el **autocompletado** o el **operador ?**. 
+bpython cuenta con características añadidas muy interesantes, como:
 
-La función de autocompletado se lanza pulsando el **tabulador**. Si escribimos fi y pulsamos Tab nos mostrará una lista de los objetos que comienzan con fi
+* Autocompletado con sugerencias a medida que escribimos
+* Resaltado de sintaxis en línea
+* Autoindentado
 
-El operador ? nos muestra información sobre los objetos. Se utiliza añadiendo el símbolo de interrogación al final del nombre del objeto del cual queremos más información. Por ejemplo:
-```python
-In [3]: str?
-```
+![índice](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/bpython.gif)
+
 ### Editores
 En cuanto a editores de código e IDEs existen múltiples opciones:
 
@@ -116,7 +140,9 @@ $ nano hola.py
 ```
 Escribimos la línea:
 
-![](https://i.imgur.com/MpqRPJp.png)
+![nano_hola_mundo](/home/ivan/mega/clases/github/pro/ut1/recursos/imgs/nano_hola_mundo.png)
+
+
 
 Guardamos y salimos (`CTRL + X`)
 
