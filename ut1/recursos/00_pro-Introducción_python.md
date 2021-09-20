@@ -121,14 +121,12 @@ print "Hola Mundo"
 #### Desde el interprete
 Vamos a probarlo primero en el interprete. Ejecutamos python o ipython, escribimos la línea anterior y pulsamos  Enter. El intér-prete responderá mostrando en la consola el texto Hola Mundo.
 
-```bash
-$ ipython
-Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
-Type 'copyright', 'credits' or 'license' for more information
-IPython 7.27.0 -- An enhanced Interactive Python. Type '?' for help.
-
-In [1]: print("Hola mundo")
-Hola mundo
+```python
+$ bpython
+bpython version 0.21 on top of Python 3.8.10 /usr/bin/python3
+>>> print("Hola Mundo")
+Hola Mundo
+>>> 
 ```
 Para salir del intérprete tecleamos `CTRL + D`
 
@@ -173,4 +171,4 @@ $ chmod +x hola.py
 $ ./hola.py
 Hola mundo
 ```
-###### tags: `pro` `python` `ut1` `introducción`
+###### 
