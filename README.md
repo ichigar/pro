@@ -3,7 +3,7 @@
 
 ### UT1
 
-* [Recursos](recursos/README.md)
+* [Recursos](ut1/recursos/README.md)
 
 ## Recetas
 * Añadir token autenticación de GitHub de repositorio existente
