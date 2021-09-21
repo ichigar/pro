@@ -8,9 +8,9 @@ Una cadena es una secuencia **inmutable** de caracteres Unicode, delimitada por 
 Las cadenas de texto se pueden delimitar con comillas simples (') o con comillas dobles ("):
 
 ```python
-\>>> print('Esto es una cadena')
+>>> print('Esto es una cadena')
 Esto es una cadena
-\>>> print("Esto es una cadena")
+>>> print("Esto es una cadena")
 Esto es una cadena
 ```
 
@@ -110,7 +110,7 @@ Las comillas dobles " delimitan cadenas.
 ```python
 >>> print('Las comillas simples \' delimitan cadenas.')
 Las comillas simples ' delimitan cadenas.
-```      
+```
 * Salto de línea: `\n`
 ```pyhton
 >>> print("Una línea\nOtra línea")
@@ -124,7 +124,7 @@ Otra línea
 ```
 ### Evaluación de cadenas desde el intérprete
 En el prompt del intérprete se pueden escribir cadenas sueltas, sin necesidad de escribir la función `print()`. Al pulsar Intro, el intérprete evalúa la cadena y escribe el resultado, como hace cuando se   escribe una expresión aritmética.
-  
+
 En la mayoría de los casos el intérprete escribe el resultado entre comillas simples, para indicar que se  trata de una cadena.
 ```python
 >>> "Esto es una cadena"

@@ -383,7 +383,7 @@ Traceback (most recent call last):
   File "<pyshell#0>", line 1, in <module>
     floor(5 / 2)
 NameError: name 'floor' is not defined
-\>>> ceil(5 / 2)
+>>> ceil(5 / 2)
 Traceback (most recent call last):
   File "<pyshell#0>", line 2, in <module> 
     ceil(5 / 2)

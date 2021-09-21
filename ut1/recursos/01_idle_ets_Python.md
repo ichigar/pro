@@ -1,4 +1,4 @@
-﻿# IDLE, el entorno de desarrollo de Python
+﻿﻿# IDLE, el entorno de desarrollo de Python
 
 ## IDLE
 
@@ -63,7 +63,7 @@ hola
 
 Si la orden contiene algún error, Python escribe un mensaje de error en inglés que indica dónde se ha producido el error y por qué:
 
-```py
+```python
 >>> print(hola)
 Traceback (most recent call last):
   File "/usr/lib/python3.8/idlelib/run.py", line 559, in runcode

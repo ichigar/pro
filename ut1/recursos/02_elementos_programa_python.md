@@ -99,7 +99,7 @@ Los literales son los datos simples que Python es capaz de manejar:
 
 Los operadores son los caracteres que permiten definir operaciones matemáticas (lógicas y aritméticas). Son llos siguientes:
 ```python
-  \+       -       *       **      /       //      %      @
+  +       -       *       **      /       //      %      @
   <<      >>      &       |       ^       ~
   <       >       <=      >=      ==      !=
 ```
@@ -154,16 +154,13 @@ Estas palabras pueden utilizarse para nombrar variables, pero entonces las funci
 
 ### Funciones adicionales
 
-Un programa puede **definir nuevas funciones** o **redefinir** las funciones integradas. Los nombres de 
-las funciones no pueden coincidir con las palabras reservadas.
+Un programa puede **definir nuevas funciones** o **redefinir** las funciones integradas. Los nombres de las funciones no pueden coincidir con las palabras reservadas.
 
 Un programa puede también **importar** nuevas funciones que se encuentran definidas en otros  ficheros llamados módulos.
 
-Python incluye una biblioteca de módulos (llamada **Biblioteca estándar**) especializados en todo tipo 
-de tareas.
+Python incluye una biblioteca de módulos (llamada **Biblioteca estándar**) especializados en todo tipo de tareas.
 
-Además de la biblioteca estándar, existen miles de módulos escritos por diferentes programadores y accesibles en Internet. El principal repositorio de módulos es el **Python Package Index** (Índice de 
-paquetes de Python), más conocido por PyPI.
+Además de la biblioteca estándar, existen miles de módulos escritos por diferentes programadores y accesibles en Internet. El principal repositorio de módulos es el **Python Package Index** (Índice de paquetes de Python), más conocido por PyPI.
 
 ## Referencias
 
