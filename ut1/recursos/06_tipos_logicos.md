@@ -60,7 +60,20 @@ True
 >>> False or False
 False
 ```
-> Nota: En el lenguaje cotidiano, el "o" se utiliza a menudo en situaciones en las que sólo puede darse una de las dos alternativas. Por ejemplo, en un menú de restaurante se puede elegir "postre o café", pero no las dos cosas (salvo que se pague aparte, claro). En lógica, ese tipo de "o" se denomina "o exclusivo" (`xor`).
+* `xor`: "o exclusivo". En el lenguaje cotidiano, el "o" se utiliza a menudo en situaciones en las que sólo puede darse una de las dos alternativas. Por ejemplo, en un menú de restaurante se puede elegir "postre o café", pero no las dos cosas (salvo que se pague aparte, claro). En lógica, ese tipo de "o" se denomina "o exclusivo" (`xor`). Para realizar una operación lógica utilizando el o exclusivo en Python se usa el operador `^` 
+
+```python
+>>> True ^ True
+False
+>>> True ^ False
+True
+>>> False ^ True
+True
+>>> False ^ False
+False
+```
+
+
 
 * `not`: negación. Este operador da como resultado True si y sólo si su argumento es False:
 
