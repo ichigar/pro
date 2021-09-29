@@ -9,6 +9,6 @@
 * [4. Cadenas de texto](recursos/04_cadenas_texto.md)
 * [5. Variables](recursos/05_variables.md)
 * [6. Tipos lógicos](recursos/06_tipos_logicos.md)
-* [7. Salida por pantalla](/recursos/07_salida_pantalla.md)
+* [7. Salida por pantalla](recursos/07_salida_pantalla.md)
 * [8. Entrada por teclado](recursos/08_entrada_teclado.md)
 
