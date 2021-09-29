@@ -1,6 +1,6 @@
 # Salida por pantalla. La función print()
 
-En Informática, la **salida** de un programa son los datos que el programa proporciona al exterior. Aunque en los incios de la informática la salida más habitual era una impresora, hace muchos años que el dispositivo de salida más habitual es la pantalla del ordenador.
+En Informática, la **salida** de un programa son los datos que el programa proporciona al exterior. Aunque en los incios de la informática la salida más habitual era una **impresora**, hace muchos años que el dispositivo de salida más habitual es la **pantalla** del ordenador.
 
 ## Salida por pantalla en el intérprete
 Para que el intérprete muestre el valor de una variable, basta con escribir su nombre.
@@ -20,6 +20,15 @@ También se puede conocer el valor de **varias variables** a la vez escribiéndo
 >>> c, b
 ('pepe', 2)
 ```
+
+En un programa el comportamiento no es el mismo. Si creamos un programa con estas dos líneas:
+
+```python
+a = 2
+a
+```
+
+Al ejecutarlo no se mostrará nada por pantalla.
 
 ## La función print()
 

@@ -1,7 +1,6 @@
 # Tipos lógicos o booleanos
 
-Una variable booleana es una variable que sólo puede tomar dos posibles valores: **True** (verdadero) 
-o **False** (falso).
+Una variable booleana es una variable que sólo puede tomar dos posibles valores: **True** (verdadero) o **False** (falso).
 
 En Python **cualquier variable** (en general, cualquier objeto) sea del tipo que sea, puede considerarse también como una variable booleana. En general los elementos **nulos** o **vacíos** se consideran **False** y el resto se consideran **True**.
 
