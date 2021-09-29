@@ -33,6 +33,7 @@ True
 True
 >>> bool({27, "octubre", 1997})
 True
+```
 ## Operadores lógicos
 Los operadores lógicos son unas operaciones que trabajan con valores booleanos.
 
