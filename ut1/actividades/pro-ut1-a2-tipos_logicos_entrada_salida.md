@@ -4,10 +4,15 @@
 **RA1** Reconocer la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.
 ### Criterios de evaluación
 1.a) Identificar los bloques que componen la estructura de un programa informático.
+
 1.c) Utilizar entornos integrados de desarrollo.
+
 1.d) Identificar los distintos tipos de variables y la utilidad específica de cada uno.
+
 1.e) Modificar el código de un programa para crear y utilizar variables.
+
 1.g) Clasificar, reconocer y utilizar en expresiones los operadores del lenguaje.
+
 1.i) Introducir comentarios en el código.
 
 ## actividad 1

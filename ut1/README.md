@@ -16,5 +16,10 @@
 ## Actividades
 
 * [UT1-A1. Introducción a Python](actividades/pro-ut1-a1-Ejer_intro_python.md)
+
 * [UT1-A2. Tipos lógicos y entrada-salida de texto](actividades/pro-ut1-a2-tipos_logicos_entrada_salida.md)
+
+* [UT1-A3. Sentencias condicionales](actividades/pro-ut1-a3-sentencias_condicionales.md)
+
+  
 
