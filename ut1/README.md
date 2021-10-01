@@ -12,3 +12,7 @@
 * [7. Salida por pantalla](recursos/07_salida_pantalla.md)
 * [8. Entrada por teclado](recursos/08_entrada_teclado.md)
 
+## Actividades
+
+* [[UT1-A1. Introducción a Python]](actividades/pro-ut1-a1-Ejercicos de introducción a Python.md)
+* [UT1-A2. Tipos lógicos y entradas/salida de texto](actividades/pro-ut1-a2-tipos_logicos_entrada_salida de texto.md)
