@@ -1,4 +1,4 @@
-# UT1-A1. Ejercicos de introducción a Python
+# UT1-A2. Ejercicos de introducción a Python
 
 ## Elementos curriculares
 **RA1** Reconocer la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.
