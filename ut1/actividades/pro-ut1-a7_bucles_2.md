@@ -66,9 +66,9 @@ Inserta resultado:
 ```
 
 
-### Texto + Fin
+### Texto + q
 
-Escribe un programa en que se pida un texto y se muestre por pantalla. El programa finalizará cuando el usuario escriba el texto `fin`. Después de escribir fin se mostrará un texto de despedida:
+Escribe un programa en que se pida un texto y se muestre por pantalla. El programa finalizará cuando el usuario escriba el texto `q`. Después de escribir q se mostrará un texto de despedida:
 
 Ejemplo de ejecución:
 
@@ -79,7 +79,7 @@ Introduce un texto: ¿Cómo
 ¿Cómo
 Introduce un texto: estas?
 estás?
-Introduce un texto: fin
+Introduce un texto: q
 Programa terminado. Hasta luego
 ```
 
@@ -88,9 +88,9 @@ Inserta aquí el programa:
 ```python
 ```
 
-### Texto acumulado + fin
+### Texto acumulado + q
 
-Modifica el programa anterior de forma que el texto leído en cada paso del bucle se vaya concatenando y no se muestre. Cuando el texto leído sea `fin` el programa dejará de leer text, mostrará el texto acumulado y se despedirá.
+Modifica el programa anterior de forma que el texto leído en cada paso del bucle se vaya concatenando y no se muestre. Cuando el texto leído sea `q` el programa dejará de leer text, mostrará el texto acumulado y se despedirá.
 
 Ejemplo de ejecución:
 
@@ -98,16 +98,16 @@ Ejemplo de ejecución:
 Introduce un texto: Hola.
 Introduce un texto: ¿Cómo
 Introduce un texto: estas?
-Introduce un texto: fin
+Introduce un texto: q
 Hola. ¿Cómo estás?
 Programa terminado. Hasta luego
 ```
 
 Inserta aquí el programa:
 
-### Texto acumulado + condición  + fin
+### Texto acumulado + condición  + q
 
-Modifica el programa anterior de forma que cómo máximo se lean 5 cadenas de texto. 
+Modifica el programa anterior de forma que el programa termine si introduces `q`  o si se leen más de 5 cadenas de texto. 
 
 Inserta aquí el programa:
 
@@ -158,4 +158,3 @@ Inserta aquí el programa:
 
 ```
 
-### 
