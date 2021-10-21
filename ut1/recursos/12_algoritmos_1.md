@@ -26,7 +26,7 @@ for i in range(n_valores):
     valor = int(input(f"Introduce el valor {i + 1}: "))
 ```
 
-**Nota:** partimos de la base de que todos los valores que se van a leer son correctos. El número de valores es un entero >= 0 y los valores leídos en el bucle son todos enteros.
+**Nota:** partimos de la base de que todos los valores que se van a leer son correctos. El número de valores es un `entero >= 0` y los valores leídos en el bucle son todos enteros.
 
 Si queremos obtener el valor máximo de los valores leídos, una primera aproximación podría ser inicializar una variable `max` a 0 y luego en cada paso del bucle comprobar si el valor leído es mayor que el almacenado con lo que pasaría a ser el nuevo valor máximo:
 
