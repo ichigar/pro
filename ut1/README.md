@@ -27,7 +27,7 @@
 * [UT1-A4. Uso de funciones aleatorias](actividades/pro-ut1-a4-condicionales_aleatorios.md)
 * [UT1-A5. Sentencias condicionales 2](actividades/pro-ut1-a5-condicionales_2.md)
 * [UT1-A6. Bucles 1](actividades/pro-ut1-a6_bucles_1.md)
-* [UT1-A5. Bucles 2](actividades/pro-ut1-a7_bucles_2.md)
+* [UT1-A7. Bucles 2](actividades/pro-ut1-a7_bucles_2.md)
 
 ## Actividades de refuerzo / ampliación
-* * [UT1-AR1. Sentencias condicionales. Refuerzo](actividades/pro-ut1-ar1-sentencias-condicionales_.md)
+* [UT1-AR1. Sentencias condicionales. Refuerzo](actividades/pro-ut1-ar1-sentencias-condicionales_.md)
