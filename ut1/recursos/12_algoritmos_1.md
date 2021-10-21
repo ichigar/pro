@@ -1,4 +1,4 @@
-# Algoritmos (I) 
+# Algoritmos (I)
 
 ## Concepto de algoritmo
 
@@ -74,8 +74,6 @@ for i in range(n_valores - 1):
         max = valor
 print(f"El valor mayor leido es {max}")
 ```
-
-
 
 La salida ahora si solo usamos valores negativos podría ser:
 
