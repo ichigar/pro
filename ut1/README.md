@@ -28,7 +28,10 @@
 * [UT1-A5. Sentencias condicionales 2](actividades/pro-ut1-a5-condicionales_2.md)
 * [UT1-A6. Bucles 1](actividades/pro-ut1-a6_bucles_1.md)
 * [UT1-A7. Bucles 2](actividades/pro-ut1-a7_bucles_2.md)
+* [UT1-A8. Bucles 3](actividades/pro-ut1-a8_bucles_3.md)
+* [UT1-A9. Bucles. Generar secuencias de salida](actividades/pro-ut1-a9_secuencias-bucles_4.md)
 
 ## Actividades de refuerzo / ampliación
-* [UT1-AR1. Sentencias condicionales. Refuerzo](actividades/pro-ut1-ar1-sentencias-condicionales_.md)
-Dentro de poco pondré algo por aquí
+* [UT1-AR1. Sentencias condicionales. Refuerzo](actividades/pro-ut1-ar1-sentencias-condicionales.md)
+* [UT1-AC1. Complementario. Entrada-Salida](actividades/pro-ut1-ac1-Entrada_salida_Python_complementaria.md)
+* [UT1-AC2. Complementario. Sentencias Repetición](actividades/pro-ut1-ac2-bucles_c.md)
