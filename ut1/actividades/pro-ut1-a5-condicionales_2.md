@@ -29,7 +29,7 @@ El cálculo de la letra del Documento Nacional de Identidad (DNI) es un  proceso
 El array de letras es:
 
 ```
-$letras = array ('T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P',  'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E');
+letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P',  'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E']
 ```
 
 Por tanto si el resto de la división es `0`, la letra del DNI es la `T` y si el resto es `3` la letra es la `A`. Con estos datos, elaborar un pequeño programa que:

@@ -80,8 +80,9 @@ El resultado se debería parecer a lo siguiente al mostrarlo en el navegador:
 Inserta el programa:
 
 ```python
-
 ```
+
+
 
 **Nota:** como no hemos visto funciones la longitud del programa va a ser bastante larga. El ejercicio siguiente optimiza la longitud del programa utilizando funciones
 
