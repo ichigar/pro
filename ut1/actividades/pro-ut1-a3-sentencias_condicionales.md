@@ -208,22 +208,3 @@ Inserta aquí el programa:
 
 ```
 
-### Tipo de triángulo
-
-Escribe un programa que lea el valor de los 3 lados de un triángulo y muestre de que tipo es, teniendo en cuenta que:
-
-| Lados             | Tipo de triángulo |
-| ----------------- | ----------------- |
-| Todos iguales     | Equilátero        |
-| Dos lados iguales | Isósceles         |
-| Todos distintos   | Escaleno          |
-
-
-Si el precio es negativo mostrará el mensaje  **precio incorrecto**
-
-Inserta aquí el programa:
-
-```python
-
-```
-
