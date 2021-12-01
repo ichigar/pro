@@ -78,9 +78,24 @@ P
 
 ```
 
+### Usando indexado para modificar cadena de caracteres
+
+Las cadenas son objetos de tipo **inmutable**, por tanto el operador de índice lo podemos usar para leer el contenido de una cadena, pero no para modificar su contenido. Si lo intentamos obtenemos un error.
+
+```python
+>>> word = "POKEMON"
+>>> word[1] = "A"
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    word[1] = "A"
+TypeError: 'str' object does not support item assignment
+```
+
+
+
 ### Subcadenas con recorte de cadenas
 
-En ocasiones se puede dar el caso de que queremas obtener varios caracteres de una cadena; una parte de ella o subcadena. Para poder hacerlo Python nos ofrece la posibilidad de que en lugar de poner entre corchetes un único valor poner un rango de la forma `[a:b]`donde:
+En ocasiones se puede dar el caso de que queremas obtener varios caracteres de una cadena; una parte de ella o subcadena. Para poder hacerlo Python nos ofrece la posibilidad de que en lugar de poner entre corchetes un único valor poner un rango de la forma `[a:b]`. El comportamiento es similar a cuando usamos dicho operador con listas.
 
 * `a` es la posición en la que se inicia la subcadena (incluyendo este índice)
 * `b` es la posición en la que termina la subcadena (**excluyendo** este índice)
@@ -89,16 +104,71 @@ En ocasiones se puede dar el caso de que queremas obtener varios caracteres de u
 
 ```python
 >>> frase = "qué bien lo pasamos!"
->>> print(frase[0:3])
-qué
->>> print(frase[4:8])
-bien
->>> print(frase[8:13])
+>>> frase[0:3]
+'qué'
+>>> frase[4:8]
+'bien'
+>>> frase[8:13]
  lo p
+```
+
+Es importante que al recortar no se incluye el índice del segundo número sino la posición anterior al mismo.
+
+Los índices negativos empiezan a contar por el final de la cadena:
+
+```python
+>>> frase = "qué bien lo pasamos!"
+>>> frase[-5:-1]
+'amos'
+>>> frase[-5:]
+'amos!'
+```
+
+
+
+Se puede usar de forma opcional un tercer parámeretro que indica un incremento a la hora de seleccionar los caracteres:
+
+```python
+>>> frase = "qué bien lo pasamos!"
+>>> frase[::2]
+'qébe opsms'
+>>> frase[4:20:3]
+'bnoam!'
+```
+
+Al igual que en las listas, si intentamos construir subcadenas con índices mayores a la longitud de la cadena no devuelve error y toma como referencia la posición del último carácter de la cadena:
+
+```python
+>>> frase = "qué bien lo pasamos!"
+>>> frase[4:20]
+'bien lo pasamos!'
+>>> frase[4:30]
+'bien lo pasamos!'
 
 ```
 
-Es importante que al recortar no se incluye el índice del segundo número.
+### Dividir una cadena
+
+Los objetos de tipo cadena incluyen el método `split()` que permiten convertir una cadena de texto en una lista.
+
+```python
+>>> texto = 'No por mucho madrugar ciento volando'
+>>> texto.split()
+['No', 'por', 'mucho', 'madrugar', 'ciento', 'volando']
+```
+
+El método `split()`utiliza por defecto como separador cualquier secuencia de  espacios en blanco, tabuladores y saltos de línea al convertir a lista. Le podemos especificar el caracter separador como parámetro:
+
+ ```python
+ >>> estuche = 'lápiz, goma, afilador, regla'
+ >>> estuche.split(', ')
+ ['lápiz', 'goma', 'afilador', 'regla']
+ 
+ ```
+
+
+
+
 
 
 ## Referencias
