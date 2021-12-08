@@ -526,7 +526,7 @@ La solución es recorrer la lista en orden inverso, de manera  que aunque se eli
       print(letras)
 ```
 
-  ```
+```
 ['A', 'B', 'C']
 ['A', 'B', 'C']
 ['A', 'C']
@@ -548,7 +548,6 @@ else:
   print("No está autorizado")
 ```
 
-------
 
 Para saber si un valor **no** está en una lista se pueden utilizar los operadores `not in`. La sintaxis sería `elemento not in lista` y devuelve también un valor lógico: `True` si el elemento **no** está en la lista, `False` si el elemento está en la lista.
 
@@ -584,6 +583,163 @@ Dada  una  lista,  podemos  convertirla  a  una  cadena  de  texto,  uniendo  to
 ```
 
 
+
+## Métodos de listas
+
+
+### append()
+
+* Vimos como añadir por el final concatenando con operador `+`
+* También usando el método `append()`
+
+```python
+>>> vocales = ["A", "E", "I", "O"]
+>>> vocales.append("U")
+```
+
+* Fíjate que en este caso se **añade un elemento** , no una lista.
+
+### Insert()
+
+* Permite insertar en cualquier posición un elemento
+* Se le pasan el índice y el nuevo elemento
+
+```python
+>>> vocales = ["A", "E", "O", "U"]
+>>> vocales.insert(2, "I")
+>>> vocales
+['A', 'E', 'I', 'O', 'U']
+```
+
+### copy()
+
+* Permite realizar una copia **dura** de una lista
+
+```python
+>>> vocales = ["A", "E", "I", "O", "U"]
+>>> vocales1 = vocales
+>>> vocales2 = vocales.copy()
+>>> del vocales[0]
+>>> vocales
+['E', 'I', 'O', 'U']
+>>> vocales1
+['E', 'I', 'O', 'U']
+>>> vocales2
+['A', 'E', 'I', 'O', 'U']
+```
+
+### join()
+
+* Permite convertir lista en cadena de texto
+* Se unen mediante separador
+* Sintaxis:
+
+```python
+<separador>.join(<lista>)
+```
+Ejemplos:
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla']
+>>> ', '.join(estuche)
+'lápiz, goma, afilador, regla'
+>>> ' '.join(estuche)
+'lápiz goma afilador regla'
+>>> ' | '.join(estuche)
+'lápiz | goma | afilador | regla'
+```
+
+### clear()
+
+* Elimina todos los elementos de una lista
+* El resultado es una lista vacia
+
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla']
+>>> estuche.clear()
+>>> estuche
+[]
+```
+### index()
+
+* Permite encontrar el índice de un elemento en una lista
+* Si el elemento no existe obtenemos error
+* Si el elemento se repite solo devuelve índice primera aparición
+
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla', 'goma']
+>>> estuche.index('afilador')
+2
+>>> estuche.index('papel')
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    estuche.index('papel')
+ValueError: 'papel' is not in list
+
+>>> estuche.index('goma')
+1
+```
+### count()
+
+* Permite contar cuantas veces aparece un valor en una lista
+
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla', 'goma']
+>>> estuche.count('regla')
+1
+>>> estuche.count('goma')
+2
+>>> estuche.count('papel')
+0
+```
+
+## Ordenar listas
+
+Python ofrece dos formas de ordenar una lista
+
+### Función sorted()
+* Usando la función `sorted()`. 
+    * No se modifica la lista original
+    * Devuelve una copia de la lista ya ordenada
+
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla']
+>>> estuche2 = sorted(estuche)
+>>> estuche
+['lápiz', 'goma', 'afilador', 'regla']
+>>> estuche2
+['afilador', 'goma', 'lápiz', 'regla'
+```
+
+### Método sort()
+
+* Usando el método sort()
+    * Ordena la lista original
+    * No devuelte nada al aplicarlo
+
+```python
+>>> estuche = ['lápiz', 'goma', 'afilador', 'regla']
+>>> estuche2 = estuche.sort()
+>>> estuche2
+>>> estuche
+['afilador', 'goma', 'lápiz', 'regla']
+
+```
+
+## Funciones matemáticas
+
+* Python ofrece funciones matemáticas a aplicar sobre listas
+* Entre ellas: `sum()`, `min()` y `max()`
+
+```python
+>>> nums = [5, 7, 9, 1, 0, -1, 8]
+>>> sum(nums)
+29
+>>> min(nums)
+-1
+>>> max(nums)
+9
+
+```
 
 ## Referencias
 
