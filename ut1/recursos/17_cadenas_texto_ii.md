@@ -11,7 +11,7 @@ En el apartado 4 de los apuntes vimos:
 * Las cadenas en bruto (raw)
 * Y posteriormente vimos las cadenas con formato o formateadas
 
-Ahora veremos aspectos nuevos
+En este apartado vermos la funciión `len()` que nos permite obtener la longitud de una cadena, cómo acceder a una caracter determinado en una cadena y la sentencia `in` para comprobar si un caracter o caracters aparecen en una cadena de texto
 
 ## Longitud de una cadena. La función `len()`
 
@@ -65,22 +65,18 @@ IndexError: string index out of range
 
 También podemos usar números negativos para acceder a los caracteres de una cadena de tal forma que si usamos como índice `-1` accederemos al último carácter, `-2` al penúltimo y así sucesivamente.
 
-![string_indexes](imgs/string_indexes.png)
-
 ```python
->>> word = 'Hola, mundo'
+>>> word = "POKEMON"
 >>> print(word[-1])
-o
+N
 >>> print(word[-2])
-d
+O
 >>> print(word[-3])
-n
+M
 >>> print(word[-7])
-,
+P
 
 ```
-
-
 
 ### Usando indexado para modificar cadena de caracteres
 
@@ -128,6 +124,8 @@ Los índices negativos empiezan a contar por el final de la cadena:
 'amos!'
 ```
 
+
+
 Se puede usar de forma opcional un tercer parámeretro que indica un incremento a la hora de seleccionar los caracteres:
 
 ```python
@@ -168,139 +166,9 @@ El método `split()`utiliza por defecto como separador cualquier secuencia de  e
  
  ```
 
-### Limpiar cadenas
 
-Cuando leemos datos de fuentes externas de información es habitual que se incluyan caractéres de relleno al principio o al final.
 
-El método `strip()`limpia por defecto, los espacios en blanco, saltos de línea (`\n`) y tabuladores (`\t`) de una cadena de texto
 
-```python
->>> html  = '  \n  \t  \n <ul><li>item1</li><li>item2</li></ul>   \n\t\t\t'
->>> html.strip()
-'<ul><li>item1</li><li>item2</li></ul>'
-
-```
-
-La cadena original no se modifica. Se devuelve la cadena sin los caractéres eliminados.
-
-Si solo queremos limpiar antes o después la cadena podemos usar los métodos `lstrip()` y `rstrip()` respectivamente
-
-```python
->>> html  = '  \n  \t  \n <ul><li>item1</li><li>item2</li></ul>   \n\t\t\t'
->>> html.lstrip()
-'<ul><li>item1</li><li>item2</li></ul>   \n\t\t\t'
->>> html.rstrip()
-'  \n  \t  \n <ul><li>item1</li><li>item2</li></ul>'
-```
-
-### Realizar búsquedas
-
-Python ofrece varios métodos para realizar búsquedas en las cadenas de texto.
-
-Los métodos `startswith()`y `endswith()` devuelven `True` se la cadena empieza o termina respectivamente por el texto a buscar.
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.startswith('Beautiful')
-True
->>> zen_python.endswith('ted.')
-True
-```
-
-Podemos buscar la primera ocurrencia de una subcadena con los métodos `find()` o  `index()`
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.find('than')
-20
->>> zen_python.index('than')
-20
-```
-
-Ambas devuelven el índice de la priemra aparición, su comportamiento es diferente cuando la subcadena no está en la cadena:
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.find('java')
--1
->>> zen_python.index('java')
-Traceback (most recent call last):
-  File "<input>", line 1, in <module>
-    zen_python.index('java')
-ValueError: substring not found
-```
-
-### Contar aparición de subcadena
-
-También podemos contabilizar el número de veces que aparece una subcadena con `count()`
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.count('better')
-5
-```
-
-### Reemplazar elementos
-
-Con el método `replace()`podemos reemplazar una subcadena por otra
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.replace('better', 'worst' )
-'Beautiful is worst than ugly.\nExplicit is worst than implicit.\nSimple is worst than complex.\nComplex is worst than complicated.\nFlat is worst than ne
-sted.'
-```
-
-Podemos especificar el número de reemplazos
-
-```python
->>> zen_python = '''Beautiful is better than ugly.
-... Explicit is better than implicit.
-... Simple is better than complex.
-... Complex is better than complicated.
-... Flat is better than nested.'''
->>> zen_python.replace('better', 'worst', 2 )
-'Beautiful is worst than ugly.\nExplicit is worst than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.'
-
-```
-
-### Mayúsculas y minúsculas
-
-Podemos hacer variaciones en los caractéres para pasarlos a mayúsculas o minúsculas con los métodos `capitalize()`, `title()`, `upper()`, `lower()` y `swapcase()`
-
-```python
->>> refran = 'no por mucho madrugar AMANDECE más temprano' 
->>> refran.capitalize()
-'No por mucho madrugar amandece más temprano'
->>> refran.title()
-'No Por Mucho Madrugar Amandece Más Temprano'
->>> refran.upper()
-'NO POR MUCHO MADRUGAR AMANDECE MÁS TEMPRANO'
->>> refran.lower()
-'no por mucho madrugar amandece más temprano'
->>> refran.swapcase()
-'NO POR MUCHO MADRUGAR amandece MÁS TEMPRANO'
-```
 
 
 ## Referencias
