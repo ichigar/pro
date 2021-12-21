@@ -7,7 +7,7 @@
 * Si se van a utilizar valores constantes estos se inicializan al principio del programa
 * Dado que el tamaño de los programas va a ir siendo cada vez mayor, es importante que se comente el código.
 
-## Tareas no evaluables (resuletos en clase)
+## Tareas no evaluables (resueltos en clase)
 
 Realizar los siguientes programas. **En ningún caso se deberán emplear elementos de Python que no hayamos visto en clase o que no se ofrezcan como recursos**.
 
