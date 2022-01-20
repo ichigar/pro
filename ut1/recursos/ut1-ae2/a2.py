@@ -83,7 +83,4 @@ def delete_word(text, word):
     'Uno, , tres; cuatro. Cinco'
     """
     return text.replace(word, "")
-    
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+

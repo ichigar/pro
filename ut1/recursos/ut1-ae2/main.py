@@ -21,11 +21,11 @@ from a3 import *
 # delete_word("dos", "Uno, dos, tres; cuatro. Cinco")
 
 from a4 import *
-# catalogo = [["camiseta roja", 10.50], ["camiseta azul", 10.99], ["camiseta blanca", 9.90],["pantalon vaquero", 21.50], ["pantalon corto", 13.50], ["chaleco", 17.20]]
-# carrito = [["camiseta roja", 1],["pantalon corto", 2], ["chaleco", 3]]
+catalogo = [["camiseta roja", 10.50], ["camiseta azul", 10.99], ["camiseta blanca", 9.90],["pantalon vaquero", 21.50], ["pantalon corto", 13.50], ["chaleco", 17.20]]
+carrito = [["camiseta roja", 1],["pantalon corto", 2], ["chaleco", 3]]
 
-# p_chaleco = obtener_precio(catalogo, "chaleco")
-# print(f"El precio del chaleco es de {p_chaleco}€.\n")
+p_chaleco = obtener_precio(catalogo, "chaleco")
+print(f"El precio del chaleco es de {p_chaleco}€.\n")
 
 # total = total_compra(catalogo, carrito)
 # print(f"El total de la compra es de: {total}€.\n")
