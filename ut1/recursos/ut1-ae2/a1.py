@@ -9,10 +9,11 @@ def valid_passwd(passwd):
     >>> valid_passwd('12345')
     ['longitud < 10', 'no contiene mayúsculas', 'no contiene caracteres especiales']
     """
+    # Inicialización de variables
     valid = True
     messagges = []
+    
     # Comprobación longitud
-
     if len(passwd) < 10:
         messagges.append("longitud < 10")
         valid = False
