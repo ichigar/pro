@@ -3,7 +3,7 @@ def valid_passwd(passwd):
     function tests
     >>> valid_passwd("lej50*paRapa")
     True
-    >>> valid_passwd("lej50*pa")
+    >>> valid_passwd("lej50*paA")
     ['longitud < 10']
 
     >>> valid_passwd('12345')
