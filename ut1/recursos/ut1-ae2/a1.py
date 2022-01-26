@@ -18,7 +18,7 @@ def valid_passwd(passwd):
         messagges.append("longitud < 10")
         valid = False
     # Comprobación mayúsculas
-    if passwd == passwd.upper():
+    if passwd == passwd.lower():
         messagges.append("no contiene mayúsculas")
         valid = False
     # Comprobación especiales
