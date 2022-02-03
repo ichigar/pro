@@ -236,7 +236,7 @@ El valor de las funciones en el examen es de:
 * `tirada()` - **0,5ptos**
 * `puntuacion()` - **0,5ptos**
 * `partida()` - **1pto**
-* `num_vueltas()` - **1pto**
+* `num_vueltas()` - **0,5pto**
 * `total_vuelta()` - **0,5ptos**
 * `vuelta_rapida()` - **1pto**
 * `vuelta_rapida_sector()` - **1pto**
