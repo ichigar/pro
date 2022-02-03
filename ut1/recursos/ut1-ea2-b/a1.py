@@ -46,3 +46,13 @@ def valid_email(email):
 
     else:
         return True 
+
+# Ejemplos de ejecución y resultado
+print(valid_email("a@a"))                    # 'longitud no válida'
+print(valid_email("user@dom@dom.es"))        # '@ no válida'
+print(valid_email("userdomdom.es"))          # '@ no válida'
+print(valid_email("@user.com"))              # '@ no válida'
+print(valid_email("user@abc"))               # 'dominio no válido'
+print(valid_email("user@ab.c"))              # 'dominio no válido'
+print(valid_email("user@.com"))              # 'dominio no válido'
+print(valid_email("user.2000@rediris.es"))   # True
