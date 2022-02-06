@@ -3,7 +3,7 @@ def valid_passwd(passwd):
     function tests
     >>> valid_passwd("lej50*paRapa")
     True
-    >>> valid_passwd("lej50*pa")
+    >>> valid_passwd("lej50*paA")
     ['longitud < 10']
 
     >>> valid_passwd('12345')
@@ -18,7 +18,7 @@ def valid_passwd(passwd):
         messagges.append("longitud < 10")
         valid = False
     # Comprobación mayúsculas
-    if passwd == passwd.upper():
+    if passwd == passwd.lower():
         messagges.append("no contiene mayúsculas")
         valid = False
     # Comprobación especiales
