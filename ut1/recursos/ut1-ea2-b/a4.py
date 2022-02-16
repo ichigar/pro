@@ -17,19 +17,19 @@ def vuelta_rapida(tiempos):
             i_min = i
     return i_min
 
-def vuelta_rapida_sectores(tiempos, i_sector):
+def vuelta_rapida_sectores(tiempos, j_sector):
     # OPCION ALTERNATIVA
     # aux = []
     # for vuelta in tiempos:
-    #     t_sector = vuelta[i_sector]
+    #     t_sector = vuelta[j_sector]
     #     print(f"------------{t_sector}")
     #     aux.append(t_sector)
     # return min(aux)
 
     # tomamos como primera referencia el tiempo en la primera vuelta en el sector buscado
-    t_min = tiempos[0][i_sector]        
+    t_min = tiempos[0][j_sector]        
     for vuelta in tiempos:
-        t_sector = vuelta[i_sector]
+        t_sector = vuelta[j_sector]
         # Miramos para cada vuelta si el tiempo en el sector es menor que el que teníamos
         if t_sector < t_min:
             t_min = t_sector
@@ -68,8 +68,8 @@ i_vrapida = vuelta_rapida(tiempos_alonso)
 print(f"La vuelta más rápida fue la número: {i_vrapida + 1}")  # 2
 
 #  Mostramos el tiempo más rápido en el sector 3
-i_sector2 = 1
-t_min_sector2 = vuelta_rapida_sectores(tiempos_alonso, i_sector2) 
+j_sector2 = 1
+t_min_sector2 = vuelta_rapida_sectores(tiempos_alonso, j_sector2) 
 print(f"El tiempo menor empleado en el sector 3 fue de: {t_min_sector2}")  # 21.43
 
 # Mostramos el tiempo medio en cada sector
