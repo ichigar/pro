@@ -1,5 +1,5 @@
-# PRO-UT2-3. Herencia
-## Herencia
+# PRO-UT2-A3. Herencia Simple
+## Herencia en OOP
 
 La **herencia** modela un tipo de relación llamada **es un** entre dos clases. Significa que cuando tenemos una clase **derivada** que hereda de una clase **base** se crea una relación en la que la clase `derivada` **es una** `especialización` de la clase `base`
 
@@ -83,6 +83,79 @@ print(lucas.walk())  # "Animal walking..."
 print(lucas.quack()) # "A duck can quack but a dog can't. Quack..."
 ```
 
+### Supuesto
+
+Definir la clase `Vehiculo` que tiene:
+
+* atributos:
+    * `_matricula`
+    * `_color`
+    * `_num_ruedas`
+* métodos:
+    * `__init__()` 
+    * `get_matricula()` devuelve la matrícula
+    * `__str__()` devuelve texto con descripción del vehículo de la forma: "vehículo con matrícula 1234ABC, de color rojo y 4 ruedas"
+
+Crea la clase `CocheCombustion` que hereda de la clase `Vehículo` y tiene las propiedad añadidas:
+
+* métodos:
+    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Coche con motor de combustión, matrícula 1234ABC, de color rojo y 4 ruedas"
+
+Crea la clase `CocheElectrico` que hereda de la clase `Vehículo` y tiene las propiedad añadida:
+
+* métodos:
+    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Coche con motor eléctrico, matrícula 4321ABC, de color rojo y 4 ruedas"
+
+Crea la clase `Moto` que hereda de la clase `Vehículo` y tiene las propiedad añadida:
+
+* métodos:
+    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Moto con matrícula 1234GRD, de color rojo y 2 ruedas"
+
+Crea un objeto de ejemplo de cada clase y prueba todos los métodos disponibles de cada uno.
+
+Inserta resultado aquí:
+
+```python
+class Vehiculo:
+    def __init__(self, matricula, color, num_ruedas):
+        self._matricula = matricula
+        self._color = color
+        self._num_ruedas = num_ruedas
+
+    def get_matricula(self):
+        return self._matricula
+    
+    def __str__(self):
+        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class CocheCombustion(Vehiculo):
+    def descripcion(self):
+        return f"Coche con motor de combustión, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class CocheElectrico(Vehiculo):
+    def descripcion(self):
+        return f"Coche con motor eléctrico, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class Moto(Vehiculo):
+    def descripcion(self):
+        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+v = Vehiculo("1234ABC", "verde", 4)
+print(v)
+
+c = CocheCombustion("TF7984G", "beige", 4)
+print(c.descripcion())
+print(c)
+
+ce = CocheElectrico("8765JVZ", "blanco", 4)
+print(ce.descripcion())
+print(ce)
+
+m = Moto("8763GRD", "amarilla", 2)
+print(m.descripcion())
+print(m)
+```
+
 ### Sobreescritura de métodos heredados
 
 Si en una clase hija se crea un método con el mismo nombre que la clase madre el nuevo método **sobreescribe** el método de la clase madre.
@@ -102,6 +175,92 @@ class Dog(Animal):
         
     def walk(self):
         return "Dog walking..."
+```
+
+### Supuesto 2
+
+Si modificamos las clases definidas en el supuesto anterior de forma que:
+
+Clase `CocheCombustion` se añade:
+
+* atributo 
+    * `_cilindrada` -> valor entero, representa cc, centímetros cúbicos del motor
+* métodos a añadir/modificar para incluir la información de la cilindrada
+    * `__init__()`
+    * `__str__()`
+    * `get_cilindrada`
+    * `descripcion()` 
+
+
+Clase `CocheElectrico` se añade:
+
+* atributo 
+    * `_potencia` -> valor entero, representa CV, caballos del motor
+* métodos a añadir/modificar para incluir la información de la cilindrada
+    * `__init__()`
+    * `__str__()`
+    * `get_potencia`
+    * `descripcion()` 
+
+El resultado es:
+
+```python
+class Vehiculo:
+    def __init__(self, matricula, color, num_ruedas):
+        self._matricula = matricula
+        self._color = color
+        self._num_ruedas = num_ruedas
+
+    def get_matricula(self):
+        return self._matricula
+    
+    def __str__(self):
+        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class CocheCombustion(Vehiculo):
+    def __init__(self, matricula, color, num_ruedas, cilindrada):
+        self._matricula = matricula
+        self._color = color
+        self._num_ruedas = num_ruedas
+        self._cilindrada = cilindrada
+    
+    def get_cilindrada(self):
+        return self._cilindrada
+
+    def descripcion(self):
+        return f"Coche con motor de combustión de {self.get_cilindrada()} cc, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class CocheElectrico(Vehiculo):
+    def __init__(self, matricula, color, num_ruedas, potencia):
+        self._matricula = matricula
+        self._color = color
+        self._num_ruedas = num_ruedas
+        self._potencia = potencia
+
+    def get_potencia(self):
+        return self._potencia
+
+    def descripcion(self):
+        return f"Coche con motor eléctrico de {self.get_potencia()}CV, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class Moto(Vehiculo):
+    def descripcion(self):
+        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+v = Vehiculo("1234ABC", "verde", 4)
+print(v)
+
+c = CocheCombustion("TF7984G", "beige", 4, 1100)
+print(c.descripcion())
+print(c)
+
+ce = CocheElectrico("8765JVZ", "blanco", 4, 180)
+print(ce.descripcion())
+print(ce)
+
+m = Moto("8763GRD", "amarilla", 2)
+print(m.descripcion())
+print(m)
 ```
 
 ### Accediendo a los métodos de la clase madre con super()
@@ -133,153 +292,253 @@ print(fluffy.legs)      # 4
 print(fluffy.color)     # "grey" 
 ```
 
-## Herencia múltiple
+### Supuesto 3
 
-Python permite herencia múltiple. Se utiliza cuando la clase hija tiene características de **más de una clase madre**. En este caso, la clase hija hereda los miembres de más de una clase madre:
+Vamos a utilizar  `super()` en las clases `CocheCombustion`, `CocheElectrico` y `Moto` en todos los casos posibles.
 
-```python
-class MotherClass1:
-    pass
-
-class MotherClass2:
-    pass
-
-class ChildClass(MotherClass1, MotherClass2):
-    pass
-```
-
-Ejemplo:
+Inserta resultado:
 
 ```python
-class SeaAnimal:
-    def __init__(self, name):
-        self.name = name
+class Vehiculo:
+    def __init__(self, matricula, color, num_ruedas):
+        self._matricula = matricula
+        self._color = color
+        self._num_ruedas = num_ruedas
+        self.revisiones = []
 
-    def swim(self):
-        return "Swimming"
+    def get_matricula(self):
+        return self._matricula
+    
+    def __str__(self):
+        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
 
-class LandAnimal:
-    def __init__(self, name):
-        self.name = name
+class CocheCombustion(Vehiculo):
+    def __init__(self, matricula, color, num_ruedas, cilindrada):
+        super().__init__(matricula, color, num_ruedas)
+        self._cilindrada = cilindrada
+    
+    def get_cilindrada(self):
+        return self._cilindrada
 
-    def walk(self):
-        return "Walking..."
+    def descripcion(self):
+        return f"Coche con motor de combustión de {self.get_cilindrada()} cc, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
 
-class Penguin(SeaAnimal, LandAnimal):
-    def __init__(self, name):
-        super().__init__(name)
+class CocheElectrico(Vehiculo):
+    def __init__(self, matricula, color, num_ruedas, potencia):
+        super().__init__(matricula, color, num_ruedas)
+        self._potencia = potencia
+
+    def get_potencia(self):
+        return self._potencia
+
+    def descripcion(self):
+        return f"Coche con motor eléctrico de {self.get_potencia()}CV, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+class Moto(Vehiculo):
+    def descripcion(self):
+        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
+
+v = Vehiculo("1234ABC", "verde", 4)
+print(v)
+
+c = CocheCombustion("TF7984G", "beige", 4, 1100)
+print(c.descripcion())
+print(c)
+
+ce = CocheElectrico("8765JVZ", "blanco", 4, 180)
+print(ce.descripcion())
+print(ce)
+
+m = Moto("8763GRD", "amarilla", 2)
+print(m.descripcion())
+print(m)
 ```
 
-En el caso anterior un Pingüino **es un** animal marino y **es un** animal terrestre y puede, por tanto, nadar y caminar.
+## Supuesto 4
+
+Validación de campos de entrada
+
+La clase `Validate` define atributos y métodos comunes para validar el valor de campos de entrada de formularios web. Su definición es la siguiente:
 
 ```python
-linux = Penguin("Tux")
-print(linux.walk())     # Walking...
-print(linux.swim())     # Swimming
+class Validate:
+    special_chars = "@#$%&/()=*{}[]-+"
+    numbers = "0123456789"
+    
+    def __init__(self, input):
+        self._input = input
+    
+    def _validate_length(self, min_length):
+        if len(self._input) < min_length:
+            return False
+        else:
+            return True
+    
+    def _is_numeric(self):
+        """
+        Pasamos una cadena de texto y devuelve True si todos los caracteres de la misma son números y False en caso contrario
+        """
+        pass  # Eliminar línea y completar código
+    
+    def _has_upper(self):
+        """
+        Pasamos una cadena de texto y devuelve True si contiene, al menos, un carácter en mayúscula.  Devuelve False en caso contrario.
+        """
+        pass  # Eliminar línea y completar código
+    
+    def _has_special_char(self):
+        """
+        Pasamos una cadena de texto y devuelve True si contiene, al menos un carcter especial. Devuelve False en caso contrario.
+        """
+        pass  # Eliminar línea y completar código
+    
+        
 ```
-
-### Orden de resolución de métodos heredados
-
-Al heredar de más de una clase madre se puede dar el caso de que dichas clases madres tengan un mismo métodos:
+Completar la definición de las siguientes clases hijas para validar campos específicos:
 
 ```python
-class B:
-    def x(self):
-        print('x: B')
+class ValidateEmail(Validate):
+    min_length = 6
+    def _validate_arroba(self):
+        pass # completar código
+    
+    def _validate_domain(self):
+        pass # completar código
+    
+    def validate(self):
+        vl = self._validate_length(self.min_length)
+        va = self._validate_arroba()
+        vd = self._validate_domain()
+        if not vl:
+            return [False, "Email incorrecto"]
+        if not va:
+            return [False, "Email incorrecto"]
+        elif not vd:
+            return [False, "Email incorrecto"]
+        else:
+            return [True, ""]
+        
+class ValidatePasswd(Validate):
+    min_length = 10
+    pass # completar código
 
-class C:
-    def x(self):
-        print('x: C')
+class ValidateCP(Validate):
+    """
+    Un código postal es válido si su longitud es 5 y todos los caracteres del mismo son números
+    """
+    length = 5
+    pass # completar código
 
-class D(B, C):
-    pass
+class ValidateDni(Validate):
+    """
+    Debe comprobar que tiene 8 números y a continuación una letra
+    La letra debe ser válida para los números del DNI (busca en Internet)
+    """
+    length = 8
+    pass # completar código
 
+# Ejecuta a continuación comprobaciones de todos los casos posibles.
+# Ejemplos
+e1 = ValidateEmail("a@a")
+es_valido = e1.validate()[0]
+if not es_valido:
+    print(e1.validate()[1]) # Devuelve 'Email incorrecto'
+else:
+    print("Email correcto")
 
-d = D()
-d.x()
+e2 = ValidateEmail("a@gmail@hotmail.com")
+es_valido = e2.validate()[0]
+if not es_valido:
+    print(e2.validate()[1]) # Devuelve 'Email incorrecto'
+else:
+    print("Email correcto")
+    
+e3 = ValidateEmail("a@example.a")
+es_valido = e3.validate()[0]
+if not es_valido:
+    print(e3.validate()[1]) # Devuelve 'Email incorrecto'
+else:
+    print("Email correcto")
+    
+    
+e4 = ValidateEmail("user@example.es")
+es_valido = e4.validate()[0]
+if not es_valido:
+    print(e4.validate()[1]) 
+else:
+    print("Email correcto") 
+    
+
+p1 = ValidatePasswd('abcD*')
+es_valido = p1.validate()[0]
+if not es_valido:
+	print(p1.validate()[1]) # Devuelve: 'Contraseña incorrecta'
+else:
+    print("Contraseña correcta")
+    
+p2 = ValidatePasswd('abcDvfghter')
+es_valido = p2.validate()[0]
+if not es_valido:
+	print(p2.validate()[1]) # Devuelve: 'Contraseña incorrecta'
+else:
+    print("Contraseña correcta")
+    
+p3 = ValidatePasswd('abc*dftynhd')
+es_valido = p3.validate()[0]
+if not es_valido:
+	print(p3.validate()[1]) # Devuelve: 'Contraseña incorrecta'
+else:
+    print("Contraseña correcta")
+    
+p4 = ValidatePasswd('abcD*2ytsffsq')
+es_valido = p4.validate()[0]
+if not es_valido:
+	print(p4.validate()[1]) # Devuelve: ''
+else:
+    print("Contraseña correcta")
+    
+cp1 = ValidateCP('1234')
+es_valido = cp1.validate()[0]
+if not es_valido:
+	print(cp1.validate()[1]) # Devuelve: 'CP incorrecto'
+else:
+    print("Código postal correcto")
+    
+cp2 = ValidateCP('12a34')
+es_valido = cp2.validate()[0]
+if not es_valido:
+	print(cp2.validate()[1]) # Devuelve: 'CP incorrecto'
+else:
+    print("Código postal correcto")
+    
+cp3 = ValidateCP('35001')
+es_valido = cp3.validate()[0]
+if not es_valido:
+	print(cp3.validate()[1]) # Devuelve: ''
+else:
+    print("Código postal correcto")
+    
+dni1 = ValidateDni('6232313M')
+es_valido = dni1.validate()[0]
+if not es_valido:
+	print(dni1.validate()[1]) # Devuelve 'DNI incorrecto'
+else:
+    print("DNI correcto")
+    
+dni2 = ValidateDni('60232313A')
+es_valido = dni2.validate()[0]
+if not es_valido:
+	print(dni2.validate()[1]) # Devuelve 'DNI incorrecto'
+else:
+    print("DNI correcto")
+    
+dni3 = ValidateDni('60232313M')
+es_valido = dni3.validate()[0]
+if not es_valido:
+	print(dni3.validate()[1]) # Devuelve ''
+else:
+    print("DNI correcto")
 ```
-El resultado de ejecutar el programa anterior es:
-
-```
-x: B
-```
-
-Python resuelve este caso siguiendo las siguientes reglas:
-
-* Si el método ha sido sobreescrito en la clase hija, este es el que se ejecuta.
-* Si el método no existe en la clase hija pero si en más de una de las clases madres se ejecuta el de aquella que se haya especificado antes a la hora de heredar.
-
-Lo mismo pasa si usamos para llamar usando `super()` un método que existe en más de una clase madre, se resuelve ejecutando el de aquella que se haya indicando que hereda en primer lugar:
-
-```python
-class B:
-    def x(self):
-        print('x: B')
-
-class C:
-    def x(self):
-        print('x: C')
-
-class D(B, C):
-    def x(self):
-        super().x()
-    pass
-
-d = D()
-d.x()        # 'x: B'
-```
-
-## Usando métodos de más de una clase madre
-
-Cómo vimos, el método `super()` nos perminte acceder a métodos de la clase madre, pero si tenemos más de un antecesor con métodos con el mismo nombre, debemos disponer de una forma de discriminar de cuál de ellos queremos reutilizar un miembro. Para ello reemplazamos el método `super()` por el nombre de la clase de la que queremos reutilizar el método:
-
-```python
-class B:
-    def x(self):
-        print('x: B')
-
-class C:
-    def x(self):
-        print('x: C')
-
-class D(B, C):
-    def x(self):
-        C.x(self)   # Se ha de pasar self al método
-    pass
-
-d = D()
-d.x()    # x: C
-```
-Además, cuando invocamos de esta forma un método de una de las clases madres hemos pasar como primer parámetro del mismo `self` para que la clase madre disponga del objeto sobre el que aplicar el método.
-
-El funcionamiento es el mismo para cualquier método, en particular también para el constructor:
-
-```python
-class SeaAnimal:
-    def __init__(self, name):
-        print("SeaAnimal INIT")
-        self.name = name
-
-    def swim(self):
-        return "Swimming..."
-
-class LandAnimal:
-    def __init__(self, age):
-        print("LandAnimal INIT")
-        self.age = age
-
-    def walk(self):
-        print("Walking...")
-
-class Penguin(SeaAnimal, LandAnimal):
-    def __init__(self, name, age):
-        SeaAnimal.__init__(self, name=name)
-        LandAnimal.__init__(self, age=age)
-
-penguin = Penguin("Kowalski", 3)
-print(penguin.name, penguin.age)
-```
-
 
 ## Recursos
 
@@ -289,3 +548,5 @@ print(penguin.name, penguin.age)
 * [https://realpython.com/python-super/ - RealPython](https://realpython.com/python-super/)
 * [OOP in Python - RealPython](https://realpython.com/python3-object-oriented-programming/#inherit-from-other-classes-in-python)
 * [OOP in Python vs Java - RealPython](https://realpython.com/oop-in-python-vs-java/#inheritance-and-polymorphism)
+
+###### tags: `pro` `ut2` `poo` `oop` `herencia`
