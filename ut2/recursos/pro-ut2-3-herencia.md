@@ -83,79 +83,6 @@ print(lucas.walk())  # "Animal walking..."
 print(lucas.quack()) # "A duck can quack but a dog can't. Quack..."
 ```
 
-### Supuesto
-
-Definir la clase `Vehiculo` que tiene:
-
-* atributos:
-    * `_matricula`
-    * `_color`
-    * `_num_ruedas`
-* métodos:
-    * `__init__()` 
-    * `get_matricula()` devuelve la matrícula
-    * `__str__()` devuelve texto con descripción del vehículo de la forma: "vehículo con matrícula 1234ABC, de color rojo y 4 ruedas"
-
-Crea la clase `CocheCombustion` que hereda de la clase `Vehículo` y tiene las propiedad añadidas:
-
-* métodos:
-    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Coche con motor de combustión, matrícula 1234ABC, de color rojo y 4 ruedas"
-
-Crea la clase `CocheElectrico` que hereda de la clase `Vehículo` y tiene las propiedad añadida:
-
-* métodos:
-    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Coche con motor eléctrico, matrícula 4321ABC, de color rojo y 4 ruedas"
-
-Crea la clase `Moto` que hereda de la clase `Vehículo` y tiene las propiedad añadida:
-
-* métodos:
-    * `descripcion()` devuelve texto con la descripción. Por ejemplo: "Moto con matrícula 1234GRD, de color rojo y 2 ruedas"
-
-Crea un objeto de ejemplo de cada clase y prueba todos los métodos disponibles de cada uno.
-
-Inserta resultado aquí:
-
-```python
-class Vehiculo:
-    def __init__(self, matricula, color, num_ruedas):
-        self._matricula = matricula
-        self._color = color
-        self._num_ruedas = num_ruedas
-
-    def get_matricula(self):
-        return self._matricula
-    
-    def __str__(self):
-        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheCombustion(Vehiculo):
-    def descripcion(self):
-        return f"Coche con motor de combustión, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheElectrico(Vehiculo):
-    def descripcion(self):
-        return f"Coche con motor eléctrico, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class Moto(Vehiculo):
-    def descripcion(self):
-        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-v = Vehiculo("1234ABC", "verde", 4)
-print(v)
-
-c = CocheCombustion("TF7984G", "beige", 4)
-print(c.descripcion())
-print(c)
-
-ce = CocheElectrico("8765JVZ", "blanco", 4)
-print(ce.descripcion())
-print(ce)
-
-m = Moto("8763GRD", "amarilla", 2)
-print(m.descripcion())
-print(m)
-```
-
 ### Sobreescritura de métodos heredados
 
 Si en una clase hija se crea un método con el mismo nombre que la clase madre el nuevo método **sobreescribe** el método de la clase madre.
@@ -177,95 +104,121 @@ class Dog(Animal):
         return "Dog walking..."
 ```
 
-### Supuesto 2
+### Polimorfismo
 
-Si modificamos las clases definidas en el supuesto anterior de forma que:
+Aprovechemos que hemos visto algunas de las ideas de la herencia para introducir el concepto de polimorfismo. 
 
-Clase `CocheCombustion` se añade:
+El término **polimorfismo** tiene origen en las palabras *poly* (muchos) y *morfo* (formas). El **polimorfismo** es una de las propiedades básicas de la programación y en particular de la programación orientada a objetos. La **idea básica** es que tenemos una **función o método** con el **mismo nombre**, pero que al ser usada en diferentes tipos obtemos **resultados distintos**.
 
-* atributo 
-    * `_cilindrada` -> valor entero, representa cc, centímetros cúbicos del motor
-* métodos a añadir/modificar para incluir la información de la cilindrada
-    * `__init__()`
-    * `__str__()`
-    * `get_cilindrada`
-    * `descripcion()` 
+Podemos observarlo en diferentes casos.
+
+#### Polimorfismo por herencia
+
+Tal y como acabamos de ver, la herencia en POO permite que una clase hija herede los métodos de la clase madre. Si el método en la clase hija no se comporta de la misma forma que en la clase madre podemos **sobreescribirlo** .
+
+Lo que conseguimos con esto es que si ejecutamos el mismo método en un objeto de la clase madre o en un objeto de la clase hija el resultado sea distinto y, por tanto, tenemos que un método **con el mismo nombre** adopta "forma" distinta en diferentes objetos.
+
+En el ejemplo anterior, un mismo método, `walk()` genera diferentes salidas aplicado a un objeto de la clase madre `Animal` o a un objeto de la clase hija `Dog`
+
+```python
+a = Animal()
+b = Dog()
+print(a.walk())
+print(b.walk())
+```
+
+El mismo método aplicado a objetos con una relación de herencia hace que obtengamos resultados distintos si el método ha sido sobreescrito en la clase hija:
+
+```
+Animal walking...
+Dog walking...
+```
 
 
-Clase `CocheElectrico` se añade:
 
-* atributo 
-    * `_potencia` -> valor entero, representa CV, caballos del motor
-* métodos a añadir/modificar para incluir la información de la cilindrada
-    * `__init__()`
-    * `__str__()`
-    * `get_potencia`
-    * `descripcion()` 
+#### Polimorfismo con métodos de clase
+
+No es necesario que haya una relación de herencia entre dors clases para que se utilice polimorfismo. Podemos crear dos clases distintas que contengan **métodos con el mismo nombre**:
+
+```python
+class India(): 
+    def capital(self): 
+        return "New Delhi is the capital of India."
+   
+    def language(self): 
+        return "Hindi is the most widely spoken language of India."
+
+   
+class USA(): 
+    def capital(self): 
+        return "Washington, D.C. is the capital of USA."
+   
+    def language(self): 
+        return"English is the primary language of USA." 
+```
+
+Y luego un **segmento de código**, por ejemplo un bucle, que llame a los métodos `capital()` y `language()` para un **objeto genérico**, sin tener en cuenta a partir de que clase se creo dicho objeto:
+
+```python
+obj_ind = India()
+obj_usa = USA()
+countries = [obj_ind, obj_usa]
+for country in countries:
+    country.capital()
+    country.language()
+```
+
+El resultado sería:
+
+```
+New Delhi is the capital of India.
+Hindi is the most widely spoken language of India.
+Washington, D.C. is the capital of USA.
+English is the primary language of USA.
+```
+
+Obtenemos un resultado distinto ejecutando el mismo método.
+
+#### Polimorfismo con función y objetos
+
+También podemos conseguir polimorfismo si tenemos una función que tenga como parámetro uno o varios objetos. Si llamamos a la función pasándole objetos de distintas clases que incluyan métodos con el mismo nombre obtendremos resultados (**formas**) distintas. 
+
+Para entenderlo mejor veamos un ejemplo:
+
+Tenemos las dos clases anteriores `India` y `USA` que contienen métodos con el mismo nombre. Si tenemos la siguiente funcion:
+
+```python
+def func(obj): 
+    print(obj.capital()) 
+    print(obj.language())
+```
+
+Si creamos un objeto de cada una de las clases y llamamos a la función pasándole cada uno de los objetos anteriores:
+
+```python
+obj_ind = India() 
+obj_usa = USA() 
+   
+func(obj_ind) 
+func(obj_usa) 
+```
 
 El resultado es:
 
-```python
-class Vehiculo:
-    def __init__(self, matricula, color, num_ruedas):
-        self._matricula = matricula
-        self._color = color
-        self._num_ruedas = num_ruedas
-
-    def get_matricula(self):
-        return self._matricula
-    
-    def __str__(self):
-        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheCombustion(Vehiculo):
-    def __init__(self, matricula, color, num_ruedas, cilindrada):
-        self._matricula = matricula
-        self._color = color
-        self._num_ruedas = num_ruedas
-        self._cilindrada = cilindrada
-    
-    def get_cilindrada(self):
-        return self._cilindrada
-
-    def descripcion(self):
-        return f"Coche con motor de combustión de {self.get_cilindrada()} cc, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheElectrico(Vehiculo):
-    def __init__(self, matricula, color, num_ruedas, potencia):
-        self._matricula = matricula
-        self._color = color
-        self._num_ruedas = num_ruedas
-        self._potencia = potencia
-
-    def get_potencia(self):
-        return self._potencia
-
-    def descripcion(self):
-        return f"Coche con motor eléctrico de {self.get_potencia()}CV, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class Moto(Vehiculo):
-    def descripcion(self):
-        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-v = Vehiculo("1234ABC", "verde", 4)
-print(v)
-
-c = CocheCombustion("TF7984G", "beige", 4, 1100)
-print(c.descripcion())
-print(c)
-
-ce = CocheElectrico("8765JVZ", "blanco", 4, 180)
-print(ce.descripcion())
-print(ce)
-
-m = Moto("8763GRD", "amarilla", 2)
-print(m.descripcion())
-print(m)
 ```
+New Delhi is the capital of India.
+Hindi is the most widely spoken language of India.
+Washington, D.C. is the capital of USA.
+English is the primary language of USA.
+```
+
+El **polimorfismo** permite que la función reciba como parámetros objetos instanciados a partir de cualquier clase y que el resultado sea distinto en función de la clase a partir de la cual se instancie el objeto.
 
 ### Accediendo a los métodos de la clase madre con super()
 
-El método **super()** permite reutilizar el código de la clase madre en las clases hija. Veámoslo con un ejemplo.
+El método **super()** permite reutilizar el código de la clase madre en las clases hija, lo que nos permite no tener que reescribir un método completamente si va a incluir código del método de la clase Madre.
+
+En el siguiente ejemplo aprovechamos el código del constructor de la clase madre en la clase hija:
 
 ```python
 class Animal:
@@ -277,7 +230,7 @@ class Animal:
 
 class Dog(Animal):
     def __init__(self, legs, color):
-        super().__init__(legs)
+        super().__init__(legs)          # Reutilizamos constructor clase madre
         self.color = color
 
     def growl(self):
@@ -290,254 +243,6 @@ class Duck(Animal):
 fluffy = Dog(4, "grey")
 print(fluffy.legs)      # 4
 print(fluffy.color)     # "grey" 
-```
-
-### Supuesto 3
-
-Vamos a utilizar  `super()` en las clases `CocheCombustion`, `CocheElectrico` y `Moto` en todos los casos posibles.
-
-Inserta resultado:
-
-```python
-class Vehiculo:
-    def __init__(self, matricula, color, num_ruedas):
-        self._matricula = matricula
-        self._color = color
-        self._num_ruedas = num_ruedas
-        self.revisiones = []
-
-    def get_matricula(self):
-        return self._matricula
-    
-    def __str__(self):
-        return f"Vehículo con matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheCombustion(Vehiculo):
-    def __init__(self, matricula, color, num_ruedas, cilindrada):
-        super().__init__(matricula, color, num_ruedas)
-        self._cilindrada = cilindrada
-    
-    def get_cilindrada(self):
-        return self._cilindrada
-
-    def descripcion(self):
-        return f"Coche con motor de combustión de {self.get_cilindrada()} cc, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class CocheElectrico(Vehiculo):
-    def __init__(self, matricula, color, num_ruedas, potencia):
-        super().__init__(matricula, color, num_ruedas)
-        self._potencia = potencia
-
-    def get_potencia(self):
-        return self._potencia
-
-    def descripcion(self):
-        return f"Coche con motor eléctrico de {self.get_potencia()}CV, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-class Moto(Vehiculo):
-    def descripcion(self):
-        return f"Moto, matrícula {self.get_matricula()}, de color {self._color} y {self._num_ruedas} ruedas."
-
-v = Vehiculo("1234ABC", "verde", 4)
-print(v)
-
-c = CocheCombustion("TF7984G", "beige", 4, 1100)
-print(c.descripcion())
-print(c)
-
-ce = CocheElectrico("8765JVZ", "blanco", 4, 180)
-print(ce.descripcion())
-print(ce)
-
-m = Moto("8763GRD", "amarilla", 2)
-print(m.descripcion())
-print(m)
-```
-
-## Supuesto 4
-
-Validación de campos de entrada
-
-La clase `Validate` define atributos y métodos comunes para validar el valor de campos de entrada de formularios web. Su definición es la siguiente:
-
-```python
-class Validate:
-    special_chars = "@#$%&/()=*{}[]-+"
-    numbers = "0123456789"
-    
-    def __init__(self, input):
-        self._input = input
-    
-    def _validate_length(self, min_length):
-        if len(self._input) < min_length:
-            return False
-        else:
-            return True
-    
-    def _is_numeric(self):
-        """
-        Pasamos una cadena de texto y devuelve True si todos los caracteres de la misma son números y False en caso contrario
-        """
-        pass  # Eliminar línea y completar código
-    
-    def _has_upper(self):
-        """
-        Pasamos una cadena de texto y devuelve True si contiene, al menos, un carácter en mayúscula.  Devuelve False en caso contrario.
-        """
-        pass  # Eliminar línea y completar código
-    
-    def _has_special_char(self):
-        """
-        Pasamos una cadena de texto y devuelve True si contiene, al menos un carcter especial. Devuelve False en caso contrario.
-        """
-        pass  # Eliminar línea y completar código
-    
-        
-```
-Completar la definición de las siguientes clases hijas para validar campos específicos:
-
-```python
-class ValidateEmail(Validate):
-    min_length = 6
-    def _validate_arroba(self):
-        pass # completar código
-    
-    def _validate_domain(self):
-        pass # completar código
-    
-    def validate(self):
-        vl = self._validate_length(self.min_length)
-        va = self._validate_arroba()
-        vd = self._validate_domain()
-        if not vl:
-            return [False, "Email incorrecto"]
-        if not va:
-            return [False, "Email incorrecto"]
-        elif not vd:
-            return [False, "Email incorrecto"]
-        else:
-            return [True, ""]
-        
-class ValidatePasswd(Validate):
-    min_length = 10
-    pass # completar código
-
-class ValidateCP(Validate):
-    """
-    Un código postal es válido si su longitud es 5 y todos los caracteres del mismo son números
-    """
-    length = 5
-    pass # completar código
-
-class ValidateDni(Validate):
-    """
-    Debe comprobar que tiene 8 números y a continuación una letra
-    La letra debe ser válida para los números del DNI (busca en Internet)
-    """
-    length = 8
-    pass # completar código
-
-# Ejecuta a continuación comprobaciones de todos los casos posibles.
-# Ejemplos
-e1 = ValidateEmail("a@a")
-es_valido = e1.validate()[0]
-if not es_valido:
-    print(e1.validate()[1]) # Devuelve 'Email incorrecto'
-else:
-    print("Email correcto")
-
-e2 = ValidateEmail("a@gmail@hotmail.com")
-es_valido = e2.validate()[0]
-if not es_valido:
-    print(e2.validate()[1]) # Devuelve 'Email incorrecto'
-else:
-    print("Email correcto")
-    
-e3 = ValidateEmail("a@example.a")
-es_valido = e3.validate()[0]
-if not es_valido:
-    print(e3.validate()[1]) # Devuelve 'Email incorrecto'
-else:
-    print("Email correcto")
-    
-    
-e4 = ValidateEmail("user@example.es")
-es_valido = e4.validate()[0]
-if not es_valido:
-    print(e4.validate()[1]) 
-else:
-    print("Email correcto") 
-    
-
-p1 = ValidatePasswd('abcD*')
-es_valido = p1.validate()[0]
-if not es_valido:
-	print(p1.validate()[1]) # Devuelve: 'Contraseña incorrecta'
-else:
-    print("Contraseña correcta")
-    
-p2 = ValidatePasswd('abcDvfghter')
-es_valido = p2.validate()[0]
-if not es_valido:
-	print(p2.validate()[1]) # Devuelve: 'Contraseña incorrecta'
-else:
-    print("Contraseña correcta")
-    
-p3 = ValidatePasswd('abc*dftynhd')
-es_valido = p3.validate()[0]
-if not es_valido:
-	print(p3.validate()[1]) # Devuelve: 'Contraseña incorrecta'
-else:
-    print("Contraseña correcta")
-    
-p4 = ValidatePasswd('abcD*2ytsffsq')
-es_valido = p4.validate()[0]
-if not es_valido:
-	print(p4.validate()[1]) # Devuelve: ''
-else:
-    print("Contraseña correcta")
-    
-cp1 = ValidateCP('1234')
-es_valido = cp1.validate()[0]
-if not es_valido:
-	print(cp1.validate()[1]) # Devuelve: 'CP incorrecto'
-else:
-    print("Código postal correcto")
-    
-cp2 = ValidateCP('12a34')
-es_valido = cp2.validate()[0]
-if not es_valido:
-	print(cp2.validate()[1]) # Devuelve: 'CP incorrecto'
-else:
-    print("Código postal correcto")
-    
-cp3 = ValidateCP('35001')
-es_valido = cp3.validate()[0]
-if not es_valido:
-	print(cp3.validate()[1]) # Devuelve: ''
-else:
-    print("Código postal correcto")
-    
-dni1 = ValidateDni('6232313M')
-es_valido = dni1.validate()[0]
-if not es_valido:
-	print(dni1.validate()[1]) # Devuelve 'DNI incorrecto'
-else:
-    print("DNI correcto")
-    
-dni2 = ValidateDni('60232313A')
-es_valido = dni2.validate()[0]
-if not es_valido:
-	print(dni2.validate()[1]) # Devuelve 'DNI incorrecto'
-else:
-    print("DNI correcto")
-    
-dni3 = ValidateDni('60232313M')
-es_valido = dni3.validate()[0]
-if not es_valido:
-	print(dni3.validate()[1]) # Devuelve ''
-else:
-    print("DNI correcto")
 ```
 
 ## Recursos
