@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from tkinter import *
+from tkinter import messagebox
 from opcion1 import *
 
 class Main:
@@ -33,6 +34,9 @@ class Main:
     
     def __btn_2_click(self):
         self.lbl_r.configure(text = "Seleccionada opción 2")
+        messagebox.showwarning("showwarning", "Warning")
+        messagebox.showinfo("showinfo", "Information")
+        messagebox.showerror("showerror", "Error")
         
 if __name__ == '__main__':
     main = Main()
