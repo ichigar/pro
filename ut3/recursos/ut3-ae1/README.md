@@ -141,6 +141,31 @@ def mostrar_receta_ingredientes(lista_ingredientes):
 mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
 ```
 
+Se podría refactorizar con una función a la que le pasamos dos listas y devuelve verdadero en caso de que todos los elementos de la primera lista estén contenidos en la segunda lista:
+
+```python
+def lista_en_lista(lista, lista_buscar):
+    """Comprueba si todos los elementos de lista están en lista_buscar """
+    
+    for item in lista:
+        if item not in lista_buscar:
+            return False
+    return True
+
+def mostrar_receta_ingredientes(lista_ingredientes):
+    with open(FILE_RECETAS,"r") as file:
+        recetas = file.readlines()
+        for receta_json in recetas:                 
+            receta = json.loads(receta_json)
+            ingredientes_receta = receta["ingredientes"]   # Extraemos los ingredientes de la receta que estamos recorriendo
+            
+            # Comprobamos si todos los ingredientes que buscamos están en la receta
+            if lista_en_lista(lista_ingredientes, ingredientes_receta):
+                mostrar_receta(receta["nombre"])
+                
+mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
+```
+
 #### `nueva_receta()` **1,5p**
 
 Se le pasa como parámetros:
