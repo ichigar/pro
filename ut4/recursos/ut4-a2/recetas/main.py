@@ -42,11 +42,7 @@ class Main:
     def __btn_1_click(self):
         mostrar = MostrarReceta()
     
-    # def __btn_2_click(self):
-    #     self.lbl_r.configure(text = "Seleccionada opción 2")
-    #     messagebox.showwarning("showwarning", "Warning")
-    #     messagebox.showinfo("showinfo", "Information")
-    #     messagebox.showerror("showerror", "Error")
+    
         
 if __name__ == '__main__':
     main = Main()
