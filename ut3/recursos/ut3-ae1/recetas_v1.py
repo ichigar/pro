@@ -19,7 +19,7 @@ def mostrar_receta(nombre_receta):
                 return
         print("Receta no encontrada")
 
-mostrar_receta("tortilla francesa")
+# mostrar_receta("tortilla francesa")
 
 def lista_en_lista(lista, lista_buscar):
     """Comprueba si todos los elementos de lista están en lista_buscar """
@@ -40,4 +40,16 @@ def mostrar_receta_ingredientes(lista_ingredientes):
             if lista_en_lista(lista_ingredientes, ingredientes_receta):
                 mostrar_receta(receta["nombre"])
                 
-mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
+# mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
+
+def nueva_receta(nombre_receta, tiempo, lista_ingredientes): 
+    with open(FILE_RECETAS,"a") as file:    # Abrimos el fichero en modo append
+        receta = {
+            "nombre":nombre_receta, 
+            "tiempo":tiempo, 
+            "ingredientes":lista_ingredientes
+        }
+        
+        file.write("\n" + json.dumps(receta))   # Escribimos el diccionario en formato json
+
+nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"])

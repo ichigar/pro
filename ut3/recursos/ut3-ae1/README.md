@@ -175,6 +175,25 @@ Se le pasa como parámetros:
 
 Añade la receta al fichero.
 
+Importante tener en cuenta que a la hora de añadir la receta al fichero:
+* Debemos abrirlo en modo append
+* Hemos de convertir el diccionario a `json` antes de escribirlo
+* Se debe añadir un salto de línea al principio para que se escriba en una nueva línea:
+
+```python
+def nueva_receta(nombre_receta, tiempo, lista_ingredientes): 
+    with open(FILE_RECETAS,"a") as file:    # Abrimos el fichero en modo append
+        receta = {
+            "nombre":nombre_receta, 
+            "tiempo":tiempo, 
+            "ingredientes":lista_ingredientes
+        }
+        
+        file.write("\n" + json.dumps(receta))   # Escribimos el diccionario en formato json
+
+nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"])
+```
+
 **Nota:** para evitar problemas de codificación de carácteres no utilices caracteres que no sean del alfabeto inglés en las recetas. (No usar ñ, á, é, í, ó, ú)
 
 #### `anadir_ingrediente()` **1,5p**
