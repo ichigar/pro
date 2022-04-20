@@ -194,6 +194,35 @@ def nueva_receta(nombre_receta, tiempo, lista_ingredientes):
 nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"])
 ```
 
+Una mejora que le podemos hacer a este apartado es comprobar que si ya existe la receta antes de añadirla:
+
+```python
+def existe_receta(nombre_receta):
+    with open(FILE_RECETAS,"r") as file:
+        for receta_json in file:
+            receta = json.loads(receta_json)
+            if receta["nombre"] == nombre_receta:
+                return True
+        return False
+
+def nueva_receta(nombre_receta, tiempo, lista_ingredientes): 
+    if not existe_receta(nombre_receta):
+        receta = {
+            "nombre": nombre_receta,
+            "tiempo": tiempo,
+            "ingredientes": lista_ingredientes
+        }
+        with open(FILE_RECETAS, "a") as file:
+            file.write("\n" + json.dumps(receta))
+        return True
+    return False
+
+if nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"]):
+    print("Receta añadida")
+else:
+    print("Receta ya existe")
+```
+
 **Nota:** para evitar problemas de codificación de carácteres no utilices caracteres que no sean del alfabeto inglés en las recetas. (No usar ñ, á, é, í, ó, ú)
 
 #### `anadir_ingrediente()` **1,5p**

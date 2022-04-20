@@ -42,14 +42,27 @@ def mostrar_receta_ingredientes(lista_ingredientes):
                 
 # mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
 
-def nueva_receta(nombre_receta, tiempo, lista_ingredientes): 
-    with open(FILE_RECETAS,"a") as file:    # Abrimos el fichero en modo append
-        receta = {
-            "nombre":nombre_receta, 
-            "tiempo":tiempo, 
-            "ingredientes":lista_ingredientes
-        }
-        
-        file.write("\n" + json.dumps(receta))   # Escribimos el diccionario en formato json
+def existe_receta(nombre_receta):
+    with open(FILE_RECETAS,"r") as file:
+        for receta_json in file:
+            receta = json.loads(receta_json)
+            if receta["nombre"] == nombre_receta:
+                return True
+        return False
 
-nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"])
+def nueva_receta(nombre_receta, tiempo, lista_ingredientes): 
+    if not existe_receta(nombre_receta):
+        receta = {
+            "nombre": nombre_receta,
+            "tiempo": tiempo,
+            "ingredientes": lista_ingredientes
+        }
+        with open(FILE_RECETAS, "a") as file:
+            file.write("\n" + json.dumps(receta))
+        return True
+    return False
+
+if nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"]):
+    print("Receta añadida")
+else:
+    print("Receta ya existe")
