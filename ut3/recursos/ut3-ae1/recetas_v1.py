@@ -92,7 +92,27 @@ def añadir_ingrediente(nombre_receta, ingrediente):
         return True
     return False    # La receta no existe
 
-if añadir_ingrediente("tortilla francesa", "jamon"):
-    print("Receta modificada")
+# if añadir_ingrediente("tortilla francesa", "jamon"):
+#     print("Receta modificada")
+# else:
+#     print("Receta no existe o ya contienen el ingrediente")
+
+def eliminar_receta(nombre_receta):
+    if existe_receta(nombre_receta):
+        # Leemos las recetas y localizamos la que queremos eliminar
+        with open(FILE_RECETAS, "r") as file:
+            recetas_json = file.readlines()
+            recetas = []
+            for receta_json in recetas_json:
+                receta = json.loads(receta_json)
+                if receta["nombre"] != nombre_receta:
+                    recetas.append(receta)
+        
+        escribir_recetas(recetas)
+        return True
+    return False    # La receta no existe
+
+if eliminar_receta("tortilla francesa"):
+    print("Receta eliminada")
 else:
-    print("Receta no existe o ya contienen el ingrediente")
+    print("Receta no existe")

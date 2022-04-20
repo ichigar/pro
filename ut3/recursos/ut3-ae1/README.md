@@ -301,6 +301,30 @@ def añadir_ingrediente(nombre_receta, ingrediente):
 
 Se le pasa como parámetro el nombre de la receta y la elimina del fichero
 
+Solución:
+
+```python
+def eliminar_receta(nombre_receta):
+    if existe_receta(nombre_receta):
+        # Leemos las recetas y localizamos la que queremos eliminar
+        with open(FILE_RECETAS, "r") as file:
+            recetas_json = file.readlines()
+            recetas = []
+            for receta_json in recetas_json:
+                receta = json.loads(receta_json)
+                if receta["nombre"] != nombre_receta:
+                    recetas.append(receta)
+        
+        escribir_recetas(recetas)
+        return True
+    return False    # La receta no existe
+
+if eliminar_receta("tortilla francesa"):
+    print("Receta eliminada")
+else:
+    print("Receta no existe")
+```
+
 ### Parte 2
 
 Con el fin de tener más información de las recetas se modifica la estructura de datos de forma que en la receta se indica para cuantas personas es y se dan más detalles de los ingredientes inluyendo aparte del nombre, la cantidad y la unidad de medida de los mismos. Un ejemplo sería el siguiente:
