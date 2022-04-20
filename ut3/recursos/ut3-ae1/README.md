@@ -101,9 +101,23 @@ def mostrar_receta(nombre_receta):
 mostrar_receta("tortilla francesa")
 ```
 
+También podemos usar el método `readlinnes()` para cargar las líneas del fichero en una lista y luego recorrerlas:
+
+```python
+def mostrar_receta(nombre_receta):
+    with open(FILE_RECETAS, "r") as file:
+        recetas = file.readlines()                  # Leemos líneas a lista
+        for receta_json in recetas:                 # la líneas del fichero contienen texto en formato json
+            receta = json.loads(receta_json)        # pasamos la línea a diccionario
+            if receta["nombre"] == nombre_receta:
+                print_receta(receta)
+                return
+        print("Receta no encontrada")
+```
+
 #### `mostrar_receta_ingredientes()` **1,5p**
 
-Se le pasa a la función un lista de ingredientes y muestra todas las recetas que incluyen todos los ingredientes de la lista.
+Se le pasa a la función un lista de ingredientes y muestra todas las recetas que incluyen **todos los ingredientes** de la lista.
 
 #### `nueva_receta()` **1,5p**
 

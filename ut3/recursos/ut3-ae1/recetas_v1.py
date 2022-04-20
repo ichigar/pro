@@ -11,7 +11,8 @@ def print_receta(receta):
 
 def mostrar_receta(nombre_receta):
     with open(FILE_RECETAS, "r") as file:
-        for receta_json in file:                    # la líneas del fichero contienen texto en formato json
+        recetas = file.readlines()                  # Leemos líneas a lista
+        for receta_json in recetas:                 # la líneas del fichero contienen texto en formato json
             receta = json.loads(receta_json)        # pasamos la línea a diccionario
             if receta["nombre"] == nombre_receta:
                 print_receta(receta)
