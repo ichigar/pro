@@ -1,4 +1,4 @@
-# PRO-UT3-AE1. Prueba práctica
+# PRO-UT3-AE1. Prueba práctica. Resuelto
 
 ## Recursos
 
