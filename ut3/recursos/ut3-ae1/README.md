@@ -229,6 +229,44 @@ else:
 
 Se le pasa como parámetro el nombre de la receta y el nombre de un ingrediente y se modifica la receta en el fichero añadiendo el nueva ingrediente a la lista de ingredientes de la misma.
 
+A continuación una posible solución. A tener en cuenta:
+
+* Recorremos las recetas y localizamos la que queremos modificar. 
+* Le añadimos el ingrediente en caso de que no lo contenga. 
+* Las recetas que vamos leyendo las guardamos en una lista. 
+* Vamos convirtiendo los diccionarios de la lista en `json` y escribiéndolos en el fichero. 
+* A la última línea no le añadimos el salto de línea:
+
+```python
+def añadir_ingrediente(nombre_receta, ingrediente):
+    if existe_receta(nombre_receta):
+        # Leemos las recetas y localizamos la que queremos modificar
+        with open(FILE_RECETAS, "r") as file:
+            recetas_json = file.readlines()
+            recetas = []
+            for receta_json in recetas_json:
+                receta = json.loads(receta_json)
+                if receta["nombre"] == nombre_receta:
+                    if ingrediente not in receta["ingredientes"]:
+                        receta["ingredientes"].append(ingrediente)
+                    else:
+                        return False
+                recetas.append(receta)
+        
+        # Escribimos las recetas con la receta a buscar moficada
+        with open(FILE_RECETAS, "w") as file:
+            for i in range(len(recetas) - 1):
+                file.write(json.dumps(recetas[i]) + "\n")
+            file.write(json.dumps(recetas[-1])) # No incluimos el \n al final
+        return True
+    return False
+
+if añadir_ingrediente("tortilla francesa", "jamon"):
+    print("Receta modificada")
+else:
+    print("Receta no existe o ya contienen el ingrediente")
+```
+
 #### `eliminar_receta()` **1,5p**
 
 Se le pasa como parámetro el nombre de la receta y la elimina del fichero

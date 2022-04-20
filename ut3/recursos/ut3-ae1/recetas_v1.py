@@ -62,7 +62,35 @@ def nueva_receta(nombre_receta, tiempo, lista_ingredientes):
         return True
     return False
 
-if nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"]):
-    print("Receta añadida")
+# if nueva_receta("arbejas", 15, ["arbejas", "zanahoria", "aceite", "sal"]):
+#     print("Receta añadida")
+# else:
+#     print("Receta ya existe")
+
+def añadir_ingrediente(nombre_receta, ingrediente):
+    if existe_receta(nombre_receta):
+        # Leemos las recetas y localizamos la que queremos modificar
+        with open(FILE_RECETAS, "r") as file:
+            recetas_json = file.readlines()
+            recetas = []
+            for receta_json in recetas_json:
+                receta = json.loads(receta_json)
+                if receta["nombre"] == nombre_receta:
+                    if ingrediente not in receta["ingredientes"]:
+                        receta["ingredientes"].append(ingrediente)
+                    else:
+                        return False
+                recetas.append(receta)
+        
+        # Escribimos las recetas con la receta a buscar moficada
+        with open(FILE_RECETAS, "w") as file:
+            for i in range(len(recetas) - 1):
+                file.write(json.dumps(recetas[i]) + "\n")
+            file.write(json.dumps(recetas[-1])) # No incluimos el \n al final
+        return True
+    return False
+
+if añadir_ingrediente("tortilla francesa", "jamon"):
+    print("Receta modificada")
 else:
-    print("Receta ya existe")
+    print("Receta no existe o ya contienen el ingrediente")

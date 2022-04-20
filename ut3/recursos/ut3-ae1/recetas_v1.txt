@@ -1,4 +1,4 @@
 {"nombre": "pollo verduras", "tiempo": 45, "ingredientes": ["pollo", "cebollas", "zanahorias", "calabacines"]}
-{"nombre": "tortilla francesa", "tiempo": 10, "ingredientes": ["huevos", "aceite", "sal"]}
+{"nombre": "tortilla papas", "tiempo": 30, "ingredientes": ["papas", "huevos", "cebolla", "aceite", "sal"]}
+{"nombre": "tortilla francesa", "tiempo": 10, "ingredientes": ["huevos", "aceite", "sal", "jamon"]}
 {"nombre": "arroz cubana", "tiempo": 30, "ingredientes": ["arroz", "huevos", "papas", "salchichas", "aceite", "sal"]}
-{"nombre": "arbejas", "tiempo": 15, "ingredientes": ["arbejas", "zanahoria", "aceite", "sal"]}
