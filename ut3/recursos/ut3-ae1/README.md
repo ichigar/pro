@@ -267,6 +267,36 @@ else:
     print("Receta no existe o ya contienen el ingrediente")
 ```
 
+Podemos refactorizar creando una función que escriba lista de recetas en fichero
+
+```python
+def escribir_recetas(recetas):
+    with open(FILE_RECETAS, "w") as file:
+        for i in range(len(recetas) - 1):
+            file.write(json.dumps(recetas[i]) + "\n")
+        file.write(json.dumps(recetas[-1])) # No incluimos el \n al final
+
+def añadir_ingrediente(nombre_receta, ingrediente):
+    if existe_receta(nombre_receta):
+        # Leemos las recetas y localizamos la que queremos modificar
+        with open(FILE_RECETAS, "r") as file:
+            recetas_json = file.readlines()
+            recetas = []
+            for receta_json in recetas_json:
+                receta = json.loads(receta_json)
+                if receta["nombre"] == nombre_receta:
+                    if ingrediente not in receta["ingredientes"]:
+                        receta["ingredientes"].append(ingrediente)
+                    else:
+                        return False    # El ingrediente ya existe
+                recetas.append(receta)
+        
+        escribir_recetas(recetas)
+        return True
+    return False    # La receta no existe
+
+```
+
 #### `eliminar_receta()` **1,5p**
 
 Se le pasa como parámetro el nombre de la receta y la elimina del fichero
