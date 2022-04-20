@@ -19,7 +19,6 @@ def mostrar_receta(nombre_receta):
                 return
         print("Receta no encontrada")
 
-# mostrar_receta("tortilla francesa")
 
 def lista_en_lista(lista, lista_buscar):
     """Comprueba si todos los elementos de lista están en lista_buscar """
@@ -112,7 +111,7 @@ def eliminar_receta(nombre_receta):
         return True
     return False    # La receta no existe
 
-if eliminar_receta("tortilla francesa"):
-    print("Receta eliminada")
-else:
-    print("Receta no existe")
+# if eliminar_receta("tortilla francesa"):
+#     print("Receta eliminada")
+# else:
+#     print("Receta no existe")
