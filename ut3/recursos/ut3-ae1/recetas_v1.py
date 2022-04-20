@@ -20,3 +20,21 @@ def mostrar_receta(nombre_receta):
         print("Receta no encontrada")
 
 mostrar_receta("tortilla francesa")
+
+def mostrar_receta_ingredientes(lista_ingredientes):
+    with open(FILE_RECETAS,"r") as file:
+        recetas = file.readlines()
+        for receta_json in recetas:                 
+            receta = json.loads(receta_json)
+            ingredientes_receta = receta["ingredientes"]   # Extraemos los ingredientes de la receta que estamos recorriendo
+            
+            # Comprobamos si todos los ingredientes que buscamos están en la receta
+            contiene_ingredietes = True
+            for ingrediente in lista_ingredientes:
+                if ingrediente not in ingredientes_receta:
+                    contiene_ingredietes = False
+            
+            if contiene_ingredietes:
+                mostrar_receta(receta["nombre"])
+                
+mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
