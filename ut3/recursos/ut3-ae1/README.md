@@ -56,9 +56,50 @@ Ingredientes:
 Solución:
 
 ```python
+import json
 
+FILE_RECETAS = "recetas_v1.txt"
+
+def mostrar_receta(nombre_receta):
+    with open(FILE_RECETAS, "r") as file:
+        for receta_json in file:
+            receta = json.loads(receta_json)
+            if receta["nombre"] == nombre_receta:
+                print(f"Nombre: {receta['nombre']}")
+                print(f"Tiempo: {receta['tiempo']} minutos")
+                print("Ingredientes:")
+                for ingrediente in receta["ingredientes"]:
+                    print(f"* {ingrediente}")
+                return
+            print("La receta no existe")
+
+mostrar_receta("tortilla francesa")
 ```
 
+Se podría refactorizar extrayendo el código en el que se muestra la receta a otra función:
+
+```python
+import json
+
+FILE_RECETAS = "recetas_v1.txt"
+
+def print_receta(receta):
+    print(f"Nombre: {receta['nombre']}")
+    print(f"Tiempo: {receta['tiempo']} minutos")
+    print("Ingredientes:")
+    for ingrediente in receta["ingredientes"]:
+        print(f"* {ingrediente}")
+
+def mostrar_receta(nombre_receta):
+    with open(FILE_RECETAS, "r") as file:
+        for receta_json in file:
+            receta = json.loads(receta_json)
+            if receta["nombre"] == nombre_receta:
+                print_receta(receta)
+                return
+
+mostrar_receta("tortilla francesa")
+```
 
 #### `mostrar_receta_ingredientes()` **1,5p**
 
