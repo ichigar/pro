@@ -21,6 +21,14 @@ def mostrar_receta(nombre_receta):
 
 mostrar_receta("tortilla francesa")
 
+def lista_en_lista(lista, lista_buscar):
+    """Comprueba si todos los elementos de lista están en lista_buscar """
+    
+    for item in lista:
+        if item not in lista_buscar:
+            return False
+    return True
+
 def mostrar_receta_ingredientes(lista_ingredientes):
     with open(FILE_RECETAS,"r") as file:
         recetas = file.readlines()
@@ -29,12 +37,7 @@ def mostrar_receta_ingredientes(lista_ingredientes):
             ingredientes_receta = receta["ingredientes"]   # Extraemos los ingredientes de la receta que estamos recorriendo
             
             # Comprobamos si todos los ingredientes que buscamos están en la receta
-            contiene_ingredietes = True
-            for ingrediente in lista_ingredientes:
-                if ingrediente not in ingredientes_receta:
-                    contiene_ingredietes = False
-            
-            if contiene_ingredietes:
+            if lista_en_lista(lista_ingredientes, ingredientes_receta):
                 mostrar_receta(receta["nombre"])
                 
 mostrar_receta_ingredientes(["aceite", "sal", "huevos"])
