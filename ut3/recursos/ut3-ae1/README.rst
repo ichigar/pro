@@ -60,9 +60,11 @@ Le pasamos el **nombre de una receta** y muestra por pantalla la información de
 
 Solución:
 
-
+  :emphasize-lines: 8,10
 
 .. code:: python
+
+
 
    import json
 
