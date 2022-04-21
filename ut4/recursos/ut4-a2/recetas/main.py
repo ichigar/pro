@@ -42,7 +42,7 @@ class Main:
     def __btn_1_click(self):
         mostrar = MostrarReceta()
     
-    
+
         
 if __name__ == '__main__':
     main = Main()
