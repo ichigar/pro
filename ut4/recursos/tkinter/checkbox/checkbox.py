@@ -12,7 +12,7 @@ class TestChk:
         self.lbl = Label(self.op1_w, text="Ingredientes", font=("Arial Bold", 12))
         self.lbl.grid(column=0, row=0)
 
-        self.chk_example_value = BooleanVar
+        self.chk_example_value = BooleanVar()
         self.chk_example = Checkbutton(self.op1_w, text="Ejemplo", var=self.chk_example_value) 
         self.chk_example.grid(column=0, row = 1)
 
@@ -21,7 +21,7 @@ class TestChk:
         self.chk_ingredientes = []   # Almacena checkbuttons
         i = 0
         for ingrediente in ingredientes:
-            self.chk_values[ingrediente] = BooleanVar # Creamos la variable en la que se almacenará el valor enviado
+            self.chk_values[ingrediente] = BooleanVar() # Creamos la variable en la que se almacenará el valor enviado
             self.chk_ingredientes.append(Checkbutton(self.op1_w, text=ingrediente, var=self.chk_values[ingrediente]))
             self.chk_ingredientes[i].grid(column=0, row = i + 2)
             i += 1
@@ -36,11 +36,12 @@ class TestChk:
         
     def _form1_enviar(self):
         t = f"Ingredientes seleccionados:"
+        
         if self.chk_example_value.get():
-            t += "* Example"
-        for ingrediente in self.chk_ingredientes:
+            t += "\n* Example"
+        for ingrediente in self.chk_values:
             if self.chk_values[ingrediente].get():
-                t += f"* {ingrediente}"
+                t += f"\n* {ingrediente}"
         self.lbl_r_1.configure(text = t)
 
 if __name__ == "__main__":
