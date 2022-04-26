@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import scrolledtext
+from tkinter import filedialog
 
 class MainApplication():
     def __init__(self, parent):
@@ -9,7 +10,7 @@ class MainApplication():
         self.parent.title("Widgets Tkinter")
         self.parent.minsize(600,400)
         self.parent.resizable(width=False, height=False)
-
+        # Contenido ventana
         # Fila 0
         self.etiqueta = tk.Label(self.parent, text="Etiqueta: ", font=("Arial", 12))
         self.entrada = tk.Entry(self.parent, width=10)
@@ -28,7 +29,6 @@ class MainApplication():
 
         # Fila 2
         self.radetiqueta = tk.Label(self.parent, text="Radiobuttons: ", font=("Arial", 12))
-        
         self.radetiqueta.grid(padx=5, pady=5, column=0, row=2, sticky="w")
         
         # Fila 3
@@ -57,17 +57,55 @@ class MainApplication():
         self.cuadro.grid(padx=5, pady=5, column=0, columnspan=3, row=5, sticky="w")
 
         # Fila 6
-        self.spin = ttk.Spinbox(self.parent, values=(1, 2, 3, 4, 5, 6), width=5 )
-        self.spin.set(3)
-        self.spin.grid(padx=5, pady=5, column=0, row=6, sticky="w")
+        self.limpiar = ttk.Button(self.parent, text="Limpiar", command=self.limpiar_cuadro)
+        self.limpiar.grid(padx=5, pady=5, column=0, row=6, sticky="w")
 
         # Fila 7
-        self.style = ttk.Style()
-        self.style.theme_use('default')
-        self.style.configure("red.Horizontal.TProgressbar", background='red')
-        self.bar = ttk.Progressbar(self.parent, length=200, style='red.Horizontal.TProgressbar')
-        self.bar['value'] = 0
-        self.bar.grid(padx=5, pady=5, column=0, row=7, sticky="w")
+        self.spin = ttk.Spinbox(self.parent, values=(1, 2, 3, 4, 5, 6), width=5 )
+        self.spin.set(3)
+        self.spin.grid(padx=5, pady=5, column=0, row=7, sticky="w")
+
+        # Fila 8
+        self.radetiqueta = tk.Label(self.parent, text="Checkbutton: ", font=("Arial", 12))
+        self.radetiqueta.grid(padx=5, pady=5, column=0, row=8, sticky="w")
+        
+        # Fila 9
+        self.chk_value = tk.BooleanVar()
+        self.chk = ttk.Checkbutton(self.parent, text="Seleccionar", var=self.chk_value) 
+        self.chk.grid(padx=5, pady=5, column=0, row=9, sticky="w")
+
+        # Fila 10
+        self.enviar = ttk.Button(self.parent, text="Limpiar", command=self.enviar)
+        self.enviar.grid(padx=5, pady=5, column=0, row=10, sticky="w")
+
+        # Barra de menús
+        menu = tk.Menu(self.parent)
+        new_item1 = tk.Menu(menu)
+        new_item1.add_command(label='Nuevo')
+        new_item1.add_command(label='Abrir', command=self.abrir)
+        new_item1.add_command(label='Guardar')
+        new_item2 = tk.Menu(menu)
+        new_item2.add_command(label='Cortar')
+        new_item2.add_command(label='Copiar')
+        new_item2.add_command(label='Pegar')
+        menu.add_cascade(label='Archivo', menu=new_item1)
+        menu.add_cascade(label='Edición', menu=new_item2)
+        self.parent.config(menu=menu)
+
+    def limpiar_cuadro(self):
+        self.cuadro.delete("1.0", tk.END)
+    
+    def enviar(self):
+        pass
+
+    def abrir(self):
+        self.files = filedialog.askopenfilenames()
+        self.texto = tk.StringVar()
+        self.texto.set("Examinar....")
+        self.texto.set(self.files)
+        #file = filedialog.askopenfilename(filetypes = (("Text files","*.txt"),("all files","*.*")))
+
+    
 
 if __name__ == '__main__':
     root = tk.Tk()
