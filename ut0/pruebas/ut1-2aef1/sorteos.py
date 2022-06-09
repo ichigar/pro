@@ -2,12 +2,15 @@ from abc import ABC, abstractmethod
 from random import randint
 
 class Loteria(ABC):
+    # Por defecto se ponen los valores de la primitiva
     L_COMBINACION = 6
     MAX_COMBINACION = 49
     
+    @abstractmethod
     def __init__(self):
         self.combinación = []
-        
+    
+    @abstractmethod    
     def _generar_números(self):
         self.combinación = []
         cont_numeros = 0
@@ -28,9 +31,12 @@ class Loteria(ABC):
         pass
     
 class Euromillon(Loteria):
+    # Se cambia el valor de las constantes para que sean las de la Euromillon
     L_COMBINACION = 5
-    L_ESTRELLAS = 2
     MAX_COMBINACION = 50
+    
+    # Constantes para las estrellas del euromillon
+    L_ESTRELLAS = 2
     MAX_ESTRELLAS = 12
     
     def __init__(self):
@@ -59,8 +65,7 @@ class Euromillon(Loteria):
     def __str__(self):
         return f"{self.combinación} - {self.estrellas}"    
     
-class Primitiva(Loteria):
-    
+class Primitiva(Loteria):    
     
     def __init__(self):
         super().__init__()
