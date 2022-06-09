@@ -73,7 +73,7 @@ class Primitiva(Loteria):
         return self.combinación
         
     def __str__(self):
-        return self.combinación
+        return f"{self.combinación}"
     
 class Registro:
     def __init__(self):
@@ -108,34 +108,43 @@ class Sorteo:
                 n_aciertos += 1
         return n_aciertos
     def mostrar_aciertos_primitivas(self):
-        print(f"Combinacion ganadora de la primitiva: {self.primitiva.get_boleto()}")
+        print("Los aciertos de cada boleto de la primitiva son:")
         for primitiva in self.registro.primitivas:
-            print(f"{primitiva.get_boleto()} - {self.__n_aciertos_primitiva(primitiva)}")
+            print(f"{primitiva} - {self.__n_aciertos_primitiva(primitiva)}")
     
 
             
     def mostrar_estadisticas_primitivas(self):
-        print(f"Combinacion ganadora de la primitiva: {self.primitiva.get_boleto()}")
+        print("Las estadísticas de aciertos de la primitiva son:")
+        # Inicializamos lista con contadores de aciertos
         aciertos = []
-        for i in range(Primitiva.L_COMBINACION):
+        for i in range(Primitiva.L_COMBINACION + 1):
             aciertos.append(0)
+            
+        # Recorremos todos los boletos de la primitiva y obtenemos el número de aciertos
         for primitiva in self.registro.primitivas:
             n_aciertos_boleto = self.__n_aciertos_primitiva(primitiva)
-            aciertos[n_aciertos_boleto] += 1
-        for i in range(Primitiva.L_COMBINACION):
+            aciertos[n_aciertos_boleto] += 1 # Incrementamos el contador de aciertos
+        
+        # Mostramos los resultados
+        for i in range(Primitiva.L_COMBINACION + 1):
             print(f"{i} aciertos: {aciertos[i]}")
             
 if __name__ == "__main__":
     # Generamos 10 primitivas y las registramos
     registro = Registro()
-    for i in range(10):
+    for i in range(10000000):
         primitiva = Primitiva()
         registro.add_primitiva(primitiva)
         
     # Realizamos un sorteo
     sorteo = Sorteo(registro)
     
-    # Mostramos los resultados de la primitiva
+    # Mostramos los resultados del sorteo
+    print(f"Combinación ganadora de la Primitiva: {sorteo.primitiva}")
+    print(f"Combinación ganadora del Euromillón: {sorteo.euromillon}")
+    
+    # Mostramos los resultados de aciertos y estadísticas de la primitiva
     sorteo.mostrar_aciertos_primitivas()
     sorteo.mostrar_estadisticas_primitivas()
     
