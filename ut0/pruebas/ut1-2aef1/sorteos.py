@@ -12,7 +12,6 @@ class Loteria(ABC):
     
     @abstractmethod    
     def _generar_números(self):
-        self.combinación = []
         cont_numeros = 0
         while cont_numeros < self.L_COMBINACION:
             numero = randint(1, self.MAX_COMBINACION)
