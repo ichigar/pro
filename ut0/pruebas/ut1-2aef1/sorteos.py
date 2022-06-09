@@ -133,7 +133,7 @@ class Sorteo:
 if __name__ == "__main__":
     # Generamos 10 primitivas y las registramos
     registro = Registro()
-    for i in range(10000000):
+    for i in range(100):
         primitiva = Primitiva()
         registro.add_primitiva(primitiva)
         
