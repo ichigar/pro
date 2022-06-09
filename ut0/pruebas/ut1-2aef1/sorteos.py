@@ -19,7 +19,7 @@ class Loteria(ABC):
                 self.combinación.append(numero)
                 cont_numeros += 1
             
-        self.combinación.sort()
+        self.combinación.sort()   # Ordena los números de menor a mayor
     
     @abstractmethod
     def get_boleto(self):
